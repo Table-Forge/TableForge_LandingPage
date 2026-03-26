@@ -1,37 +1,146 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TableForge Landing Page
 
-## Getting Started
+Landing page oficial do **TableForge**, focada em:
 
-First, run the development server:
+- aquisicao de leads para o beta
+- conversao de visitantes em usuarios
+- SEO tecnico e conteudo orientado a busca
+- experiencia gamificada no formulario de captura
+
+## Visao Geral
+
+O projeto foi construido para divulgar um app que conecta jogadores por geolocalizacao (RPG, board games, TCG e outros jogos colaborativos).  
+A LP atual combina copy de conversao + elementos de gamificacao para aumentar conclusao do formulario.
+
+## Stack
+
+- **Next.js 16.2.1** (App Router)
+- **React 19**
+- **TypeScript**
+- **Tailwind CSS v4**
+- **Framer Motion**
+- **Lucide React**
+
+## Funcionalidades Implementadas
+
+### Landing gamificada
+
+- barra de progresso da missao de cadastro
+- sistema de XP e status de nivel
+- checklist de missoes (nome, email, cidade, interesse, perfil gamer)
+- escolha de arquetipo de jogador
+- CTA dinamico com foco em conversao
+
+### SEO
+
+- metadata de pagina (title, description, keywords)
+- Open Graph + Twitter Card
+- JSON-LD (`SoftwareApplication` e `FAQPage`)
+- `robots.txt` dinamico em `app/robots.ts`
+- `sitemap.xml` dinamico em `app/sitemap.ts`
+- `canonical` configurado
+
+### Captura de leads
+
+- endpoint `POST /api/leads`
+- validacao basica de campos e email
+- retorno de mensagens de sucesso/erro
+- sink temporario via `console.info` (pronto para integrar CRM/DB)
+
+## Estrutura de Pastas
+
+```txt
+app/
+  api/leads/route.ts          # API de captura de leads
+  components/landing-page.tsx # UI principal da LP
+  globals.css                 # tema e variaveis de cor
+  layout.tsx                  # metadata base e layout raiz
+  page.tsx                    # pagina home + metadata + JSON-LD
+  robots.ts                   # robots dinamico
+  sitemap.ts                  # sitemap dinamico
+```
+
+## Requisitos
+
+- Node.js **20.9+**
+- npm, yarn, pnpm ou bun
+
+## Como Rodar Localmente
+
+1. Instale dependencias:
+
+```bash
+npm install
+```
+
+2. Crie um `.env.local` (opcional, recomendado):
+
+```bash
+NEXT_PUBLIC_SITE_URL=https://seu-dominio.com
+```
+
+3. Rode em modo desenvolvimento:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Acesse:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```txt
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Scripts
 
-## Learn More
+- `npm run dev` inicia ambiente local
+- `npm run lint` valida padrao de codigo
+- `npm run build` gera build de producao
+- `npm run start` sobe build gerada
 
-To learn more about Next.js, take a look at the following resources:
+## Endpoint de Leads
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### `POST /api/leads`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Payload esperado:
 
-## Deploy on Vercel
+```json
+{
+  "name": "Nome",
+  "email": "email@exemplo.com",
+  "city": "Sao Paulo",
+  "interest": "RPG",
+  "archetype": "explorador"
+}
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Resposta de sucesso:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# TableForge_LandingPage
+- `201 Created`
+- `{ "message": "Cadastro confirmado! ..." }`
+
+## Personalizacao Rapida
+
+Para adaptar a LP ao branding final:
+
+1. Ajuste copy e seções em `app/components/landing-page.tsx`
+2. Atualize paleta em `app/globals.css`
+3. Revise metadata e palavras-chave em `app/page.tsx`
+4. Defina dominio real em `NEXT_PUBLIC_SITE_URL`
+5. Integre `app/api/leads/route.ts` com seu CRM ou banco
+
+## Proximos Passos Recomendados
+
+- integrar leads com Supabase, HubSpot ou RD Station
+- configurar evento de conversao (GA4/Meta Pixel)
+- criar testes A/B entre versao gamificada e versao classica
+- adicionar pagina de termos e politica de privacidade
+
+## Observacao Sobre Next.js
+
+Este projeto usa **Next.js 16** com mudancas importantes em relacao a versoes antigas.  
+Se precisar implementar algo novo, consulte a documentacao local em:
+
+```txt
+node_modules/next/dist/docs/
+```
