@@ -1,5 +1,5 @@
-import { LandingPage } from "@/app/components/landing-page";
 import type { Metadata } from "next";
+import { PageContent } from "./components/page-content";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://tableforge.com.br";
 const pageTitle =
@@ -95,14 +95,18 @@ const structuredData = [
   },
 ];
 
+
+
 export default function Home() {
+
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <LandingPage />
+      <PageContent />
     </>
   );
 }
