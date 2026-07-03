@@ -16,12 +16,12 @@ export const Header = () => {
                 className="inline-flex items-center gap-1 rounded-2xl px-5 py-3"
             >
                 <img
-                    src="/logo/logo-image-white.png"
+                    src="https://tableforge-bucket.s3.amazonaws.com/development/public/images/d4037d09-0893-4098-bc52-f94291c91c00.webp?v=1"
                     alt="TableForge Logo"
                     className="h-20 w-auto"
                 />
                 <img
-                    src="/logo/text-h-white.png"
+                    src="https://tableforge-bucket.s3.amazonaws.com/development/public/images/6bb3f68c-851e-4e91-bba1-3bc6e8e136d9.webp?v=1"
                     alt="TableForge Logo"
                     className="h-10 w-auto"
                 />

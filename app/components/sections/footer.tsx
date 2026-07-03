@@ -8,7 +8,7 @@ export const Footer = () => {
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
                 <div className="space-y-4 lg:col-span-2">
                     <img
-                        src="/logo/text-h-white.png"
+                        src="https://tableforge-bucket.s3.amazonaws.com/development/public/images/6bb3f68c-851e-4e91-bba1-3bc6e8e136d9.webp?v=1"
                         alt="TableForge Logo"
                         className="h-12 w-auto"
                     />
