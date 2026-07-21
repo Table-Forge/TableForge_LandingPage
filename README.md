@@ -129,6 +129,15 @@ Para adaptar a LP ao branding final:
 4. Defina dominio real em `NEXT_PUBLIC_SITE_URL`
 5. Integre `app/api/leads/route.ts` com seu CRM ou banco
 
+## 🔗 Domínio Recomendado
+
+Para centralizar o tráfego da captação de leads e testadores, o domínio ideal recomendado para hospedar a Landing Page é:
+
+```txt
+beta.tableforge.com.br
+```
+*(Certifique-se de configurar a variável `NEXT_PUBLIC_SITE_URL` com este domínio no ambiente de produção)*
+
 ## Proximos Passos Recomendados
 
 - integrar leads com Supabase, HubSpot ou RD Station
