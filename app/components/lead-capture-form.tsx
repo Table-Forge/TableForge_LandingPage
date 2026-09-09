@@ -101,8 +101,7 @@ export const LeadCaptureForm = () => {
 
             <h2 className="text-2xl font-semibold">Receba acesso ao beta</h2>
             <p className="mt-2 text-sm text-[var(--color-grays_100)]">
-                Complete as missões abaixo e entre na lista de usuários
-                prioritários.
+                Complete as missões abaixo para entrar na lista de acesso prioritário e parceiros fundadores.
             </p>
 
             <div className="mt-4 grid gap-2 sm:grid-cols-2">
@@ -130,13 +129,13 @@ export const LeadCaptureForm = () => {
             <form onSubmit={handleSubmit(onSubmit)} className="mt-6 space-y-4">
                 <div className="space-y-2">
                     <label htmlFor="name" className="text-sm text-[var(--color-grays_100)]">
-                        Nome
+                        Nome ou Nome da Loja
                     </label>
                     <input
                         id="name"
                         {...register("name")}
                         className="w-full rounded-xl border border-[var(--color-grays_500)] bg-[var(--color-background)] px-4 py-3 text-sm outline-none transition focus:border-[var(--color-secondary)]"
-                        placeholder="Seu nome"
+                        placeholder="Seu nome ou da sua loja"
                     />
                     {errors.name && <span className="text-xs text-[var(--color-danger)]">{errors.name.message}</span>}
                 </div>
@@ -150,7 +149,7 @@ export const LeadCaptureForm = () => {
                         type="email"
                         {...register("email")}
                         className="w-full rounded-xl border border-[var(--color-grays_500)] bg-[var(--color-background)] px-4 py-3 text-sm outline-none transition focus:border-[var(--color-secondary)]"
-                        placeholder="voce@email.com"
+                        placeholder="voce@email.com ou contato@sualoja.com"
                     />
                     {errors.email && <span className="text-xs text-[var(--color-danger)]">{errors.email.message}</span>}
                 </div>
@@ -164,7 +163,7 @@ export const LeadCaptureForm = () => {
                             id="city"
                             {...register("city")}
                             className="w-full rounded-xl border border-[var(--color-grays_500)] bg-[var(--color-background)] px-4 py-3 text-sm outline-none transition focus:border-[var(--color-secondary)]"
-                            placeholder="Ex: São Paulo"
+                            placeholder="Ex: Londrina, São Paulo..."
                         />
                         {errors.city && <span className="text-xs text-[var(--color-danger)]">{errors.city.message}</span>}
                     </div>
@@ -184,9 +183,10 @@ export const LeadCaptureForm = () => {
                             <option value="" disabled>
                                 Selecione
                             </option>
-                            <option value="RPG">RPG</option>
-                            <option value="Board Games">Board Games</option>
-                            <option value="TCG">TCG</option>
+                            <option value="RPG">RPG (D&D, Tormenta, etc.)</option>
+                            <option value="Board Games">Board Games (Jogos de Tabuleiro)</option>
+                            <option value="Loja / Espaço Geek">Loja / Espaço Físico Geek</option>
+                            <option value="TCG">TCG / Card Games</option>
                             <option value="Outros">Outros</option>
                         </select>
                         {errors.interest && <span className="text-xs text-[var(--color-danger)]">{errors.interest.message}</span>}
@@ -195,7 +195,7 @@ export const LeadCaptureForm = () => {
 
                 <div className="space-y-2">
                     <p className="text-sm text-[var(--color-grays_100)]">
-                        Escolha seu perfil gamer
+                        Escolha seu perfil no ecossistema
                     </p>
                     <div className="grid gap-2">
                         <Controller

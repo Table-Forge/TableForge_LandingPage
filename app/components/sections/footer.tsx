@@ -13,7 +13,7 @@ export const Footer = () => {
                         className="h-12 w-auto"
                     />
                     <p className="max-w-xs text-sm text-[var(--color-grays_100)]">
-                        Conectando jogadores por geolocalização para RPG, Board Games e TCG. Monte sua party ideal.
+                        Conectando jogadores, mestres e lojas físicas por geolocalização para RPG, Board Games e eventos. Forje sua mesa. Encontre sua comunidade.
                     </p>
                 </div>
 
@@ -28,6 +28,11 @@ export const Footer = () => {
                         <li>
                             <a href="#como-funciona" className="transition hover:text-[var(--color-tertiary)]">
                                 Como funciona
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#lojas" className="transition hover:text-[var(--color-tertiary)]">
+                                Para Lojas
                             </a>
                         </li>
                         <li>

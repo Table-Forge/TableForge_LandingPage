@@ -1,17 +1,17 @@
 export const howItWorks = [
     {
-        title: "Crie seu perfil de jogador",
+        title: "Crie seu perfil ou cadastre seu espaço",
         description:
-            "Informe seus jogos favoritos, estilo de partida e quando você costuma jogar.",
+            "Defina se você joga RPG, curte board games ou tem uma loja física querendo receber jogadores.",
     },
     {
-        title: "Defina filtros inteligentes",
+        title: "Descubra mesas, grupos e lojas parceiras",
         description:
-            "Ajuste raio de busca, cidade, bairro e preferências para achar pessoas compatíveis.",
+            "Encontre pessoas compatíveis na sua região ou explore espaços com mesas físicas prontas para jogar.",
     },
     {
-        title: "Entre em uma party e marque o jogo",
+        title: "Reserve mesas, marque sessões e jogue",
         description:
-            "Use o chat, confirme no calendário e jogue com grupos mais alinhados ao seu perfil.",
+            "Use o chat para alinhar detalhes, confirme presença no calendário e curta suas partidas presenciais ou online.",
     },
 ];

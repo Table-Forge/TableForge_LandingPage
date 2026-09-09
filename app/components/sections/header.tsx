@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Sparkles, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export const Header = () => {
     return (
@@ -39,6 +39,12 @@ export const Header = () => {
                     className="rounded-full border border-transparent px-3 py-2 text-[var(--color-grays_100)] transition hover:border-[var(--color-grays_400)] hover:text-[var(--color-white)]"
                 >
                     Como funciona
+                </a>
+                <a
+                    href="#lojas"
+                    className="rounded-full border border-transparent px-3 py-2 text-[var(--color-grays_100)] transition hover:border-[var(--color-grays_400)] hover:text-[var(--color-white)]"
+                >
+                    Para Lojas
                 </a>
                 <a
                     href="#faq"

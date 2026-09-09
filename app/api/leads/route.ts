@@ -5,6 +5,7 @@ type LeadInput = {
   email?: string;
   city?: string;
   interest?: string;
+  archetype?: string;
 };
 
 function normalize(value: unknown) {
@@ -31,6 +32,7 @@ export async function POST(request: Request) {
   const email = normalize(payload.email);
   const city = normalize(payload.city);
   const interest = normalize(payload.interest);
+  const archetype = normalize(payload.archetype);
 
   if (!name || !email || !city || !interest) {
     return NextResponse.json(
@@ -52,6 +54,7 @@ export async function POST(request: Request) {
     email,
     city,
     interest,
+    archetype,
     createdAt: new Date().toISOString(),
   });
 

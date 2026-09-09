@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     template: "%s | TableForge",
   },
   description:
-    "App de geolocalização para conectar jogadores de RPG, board games e TCG com filtros inteligentes e encontros organizados.",
+    "O ponto de encontro para RPG, board games e lojas geek. Conecte-se com jogadores, reserve mesas em espaços parceiros e organize partidas por geolocalização.",
   applicationName: "TableForge",
   category: "games",
   authors: [{ name: "TableForge" }],

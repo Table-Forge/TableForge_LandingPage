@@ -3,9 +3,9 @@ import { PageContent } from "./components/page-content";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://tableforge.com.br";
 const pageTitle =
-  "TableForge: conecte jogadores por geolocalização para RPG, board games e TCG";
+  "TableForge | O Ponto de Encontro para RPG, Board Games e Lojas Geek";
 const pageDescription =
-  "Descubra e monte partys de jogadores por cidade, bairro ou raio. Organize encontros, use chat, calendário e filtros inteligentes para jogar mais.";
+  "Conecte-se com jogadores de RPG e board games, descubra lojas físicas parceiras com reserva de mesas e organize encontros presenciais ou online por geolocalização.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -13,8 +13,12 @@ export const metadata: Metadata = {
   keywords: [
     "encontrar jogadores perto de mim",
     "app para RPG",
+    "jogos de tabuleiro",
+    "board games brasil",
+    "lojas de jogos perto de mim",
+    "reserva de mesas para jogos",
+    "espaços geek",
     "app para board games",
-    "app para TCG",
     "geolocalização para jogadores",
     "organizar encontros de jogos",
   ],
@@ -69,18 +73,34 @@ const structuredData = [
     mainEntity: [
       {
         "@type": "Question",
-        name: "Como encontrar jogadores de RPG perto de mim?",
+        name: "Como encontrar jogadores de RPG e board games perto de mim?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Defina sua localização e um raio de busca no TableForge para encontrar jogadores e grupos próximos.",
+          text: "Defina sua localização e um raio de busca no TableForge para encontrar jogadores, mestres e grupos de jogos de tabuleiro e RPG na sua região.",
         },
       },
       {
         "@type": "Question",
-        name: "O app funciona para board games e TCG?",
+        name: "O app oferece suporte completo para board games?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Sim. O app conecta jogadores para RPG, board games, trading card games e outros jogos colaborativos.",
+          text: "Sim! Você pode criar ou buscar partidas de jogos de tabuleiro modernos, combinar noites de jogos e conectar-se com outros entusiastas.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Como funciona para lojas físicas e espaços geek parceiros?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Lojistas podem cadastrar seu espaço, exibir mesas físicas, gerenciar solicitações de reserva e divulgar eventos e torneios diretamente para a comunidade local.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Posso reservar mesas físicas em lojas pelo aplicativo?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Sim. As lojas parceiras exibem suas mesas cadastradas, capacidade e horários para solicitação de reserva direta no app.",
         },
       },
       {

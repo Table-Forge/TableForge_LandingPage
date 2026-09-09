@@ -9,7 +9,7 @@ Landing page oficial do **TableForge**, focada em:
 
 ## Visao Geral
 
-O projeto foi construido para divulgar um app que conecta jogadores por geolocalizacao (RPG, board games, TCG e outros jogos colaborativos).  
+O projeto foi construido para divulgar um app que conecta jogadores, mestres e lojas fisicas parceiras por geolocalizacao (RPG, board games, TCG e outros jogos colaborativos com reserva de mesas).  
 A LP atual combina copy de conversao + elementos de gamificacao para aumentar conclusao do formulario.
 
 ## Stack
@@ -27,8 +27,9 @@ A LP atual combina copy de conversao + elementos de gamificacao para aumentar co
 
 - barra de progresso da missao de cadastro
 - sistema de XP e status de nivel
-- checklist de missoes (nome, email, cidade, interesse, perfil gamer)
-- escolha de arquetipo de jogador
+- checklist de missoes (nome, email, cidade, interesse, perfil)
+- escolha de perfil no ecossistema (jogador, mestre, board games, lojista)
+- secao dedicada para lojistas e espacos parceiros
 - CTA dinamico com foco em conversao
 
 ### SEO
@@ -106,11 +107,11 @@ Payload esperado:
 
 ```json
 {
-  "name": "Nome",
+  "name": "Nome ou Nome da Loja",
   "email": "email@exemplo.com",
   "city": "Sao Paulo",
-  "interest": "RPG",
-  "archetype": "explorador"
+  "interest": "Board Games",
+  "archetype": "boardgames"
 }
 ```
 

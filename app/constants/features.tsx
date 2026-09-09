@@ -1,5 +1,4 @@
-import { MapPin, Compass, Users, MessageCircle, CalendarDays, ShieldCheck, LucideIcon } from "lucide-react";
-
+import { MapPin, Dices, Store, Users, CalendarDays, MessageCircle, LucideIcon } from "lucide-react";
 
 export type Feature = {
     title: string;
@@ -11,37 +10,37 @@ export const features: Feature[] = [
     {
         title: "Geolocalização por raio, bairro ou cidade",
         description:
-            "Encontre jogadores perto de você com filtros por distância e disponibilidade.",
+            "Encontre jogadores, mesas de RPG e partidas de board games perto de você com filtros inteligentes.",
         icon: MapPin,
     },
     {
-        title: "Match por interesse de jogo",
+        title: "Board Games e RPG em um só lugar",
         description:
-            "Conecte pessoas para RPG, board games, TCGs e outros jogos colaborativos.",
-        icon: Compass,
+            "Suporte nativo para organizar tanto campanhas longas de RPG quanto encontros casuais de jogos de tabuleiro.",
+        icon: Dices,
     },
     {
-        title: "Party pronta para jogar",
+        title: "Lojas e Espaços Físicos Parceiros",
         description:
-            "Monte grupos com perfil, nível e preferência de experiência em comum.",
+            "Descubra ludotecas e lojas geek na sua região, conheça a estrutura e solicite reserva de mesas no app.",
+        icon: Store,
+    },
+    {
+        title: "Encontre sua mesa ou monte seu grupo",
+        description:
+            "Conecte-se com mestres, jogadores e organizadores que compartilham dos mesmos interesses e horários.",
         icon: Users,
     },
     {
-        title: "Chat para combinar detalhes",
+        title: "Eventos, Torneios e Calendário",
         description:
-            "Converse no app para alinhar horário, local, regras e formato do encontro.",
-        icon: MessageCircle,
-    },
-    {
-        title: "Calendário de encontros",
-        description:
-            "Agende partidas presenciais ou online com lembretes e acompanhamento.",
+            "Acompanhe campeonatos, noites temáticas de jogos e encontros presenciais ou online com facilidade.",
         icon: CalendarDays,
     },
     {
-        title: "Segurança e controle",
+        title: "Chat e Comunicação Integrada",
         description:
-            "Gerencie informações e interações com recursos de privacidade e moderação.",
-        icon: ShieldCheck,
+            "Converse no app para alinhar regras, formato da partida e tirar dúvidas direto com jogadores ou lojistas.",
+        icon: MessageCircle,
     },
 ];

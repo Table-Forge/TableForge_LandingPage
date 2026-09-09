@@ -9,7 +9,7 @@ export const useLeadMissions = (formValues: Partial<ILeadForm>) => {
             { label: "Informar e-mail", done: (formValues.email?.trim()?.length ?? 0) > 4 },
             { label: "Escolher cidade", done: (formValues.city?.trim()?.length ?? 0) > 1 },
             { label: "Selecionar interesse", done: !!formValues.interest },
-            { label: "Escolher perfil gamer", done: !!formValues.archetype },
+            { label: "Escolher seu perfil", done: !!formValues.archetype },
         ],
         [formValues]
     );
