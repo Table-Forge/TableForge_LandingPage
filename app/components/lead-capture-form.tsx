@@ -136,11 +136,10 @@ export const LeadCaptureForm = () => {
         </div>
 
         <h2 className="mt-5 font-display text-xl font-bold uppercase tracking-[0.04em] text-[#faf3e0]">
-          Receba acesso ao beta
+          Assine o Livro da Forja
         </h2>
         <p className="mt-2 text-sm leading-relaxed text-[#A1A1A1]">
-          Complete as missões abaixo para entrar na lista de acesso prioritário
-          e parceiros fundadores.
+          Preencha seus atributos para garantir acesso prioritário. Os primeiros a chegarem receberão o título exclusivo de Ferreiro Fundador.
         </p>
 
         <div className="mt-4 grid gap-2 sm:grid-cols-3 md:grid-cols-5">
@@ -169,7 +168,7 @@ export const LeadCaptureForm = () => {
           <div className="space-y-4">
             <div className="space-y-2">
               <label htmlFor="name" className={labelStyles}>
-                Nome ou Nome da Loja
+                Nome do Aventureiro ou da sua Taverna
               </label>
               <input
                 id="name"
@@ -185,14 +184,14 @@ export const LeadCaptureForm = () => {
 
             <div className="space-y-2">
               <label htmlFor="email" className={labelStyles}>
-                E-mail
+                Contato Mágico
               </label>
               <input
                 id="email"
                 type="email"
                 {...register("email")}
                 className={fieldStyles}
-                placeholder="voce@email.com ou contato@sualoja.com"
+                placeholder="Seu e-mail"
                 maxLength={100}
               />
               {errors.email && (
@@ -203,13 +202,13 @@ export const LeadCaptureForm = () => {
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="space-y-2">
                 <label htmlFor="city" className={labelStyles}>
-                  Cidade
+                  Seu Território
                 </label>
                 <input
                   id="city"
                   {...register("city")}
                   className={fieldStyles}
-                  placeholder="Ex: Londrina, São Paulo..."
+                  placeholder="Ex: Londrina, São Paulo"
                   maxLength={60}
                 />
                 {errors.city && (
@@ -219,7 +218,7 @@ export const LeadCaptureForm = () => {
 
               <div className="space-y-2">
                 <label htmlFor="interest" className={labelStyles}>
-                  Interesse principal
+                  Foco da Jornada
                 </label>
                 <select
                   id="interest"
@@ -248,7 +247,7 @@ export const LeadCaptureForm = () => {
 
           <div className="flex flex-col space-y-4">
             <div className="space-y-2">
-              <p className={labelStyles}>Escolha seu perfil no ecossistema</p>
+              <p className={labelStyles}>Escolha sua Classe (Perfil)</p>
               <div className="grid gap-2 lg:grid-cols-2">
                 <Controller
                   name="archetype"

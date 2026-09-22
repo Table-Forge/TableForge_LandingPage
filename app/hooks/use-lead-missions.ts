@@ -23,11 +23,11 @@ const LEFT_TEXT = [
 export const useLeadMissions = (formValues: Partial<ILeadForm>) => {
     const missions = useMemo(
         () => [
-            { label: "Definir nome", done: (formValues.name?.trim()?.length ?? 0) > 1 },
-            { label: "Informar e-mail", done: (formValues.email?.trim()?.length ?? 0) > 4 },
-            { label: "Escolher cidade", done: (formValues.city?.trim()?.length ?? 0) > 1 },
-            { label: "Selecionar interesse", done: !!formValues.interest },
-            { label: "Escolher seu perfil", done: !!formValues.archetype },
+            { label: "Assine sua Alcunha (Nome)", done: (formValues.name?.trim()?.length ?? 0) > 1 },
+            { label: "Informe seu Contato Mágico (E-mail)", done: (formValues.email?.trim()?.length ?? 0) > 4 },
+            { label: "Mapeie seu Território (Cidade)", done: (formValues.city?.trim()?.length ?? 0) > 1 },
+            { label: "Determine o Foco da Jornada (Interesse)", done: !!formValues.interest },
+            { label: "Escolha sua Classe (Perfil)", done: !!formValues.archetype },
         ],
         [formValues]
     );
