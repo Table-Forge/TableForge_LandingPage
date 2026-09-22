@@ -18,7 +18,7 @@ export const CtaSection = () => {
                     align="center"
                 />
                 
-                <div className="mt-12 w-full max-w-4xl text-left">
+                <div className="mt-12 w-full text-left">
                     <LeadCaptureForm />
                 </div>
             </motion.div>

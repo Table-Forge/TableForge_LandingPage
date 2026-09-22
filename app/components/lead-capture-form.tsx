@@ -81,7 +81,7 @@ export const LeadCaptureForm = () => {
     }
 
     return (
-        <motion.aside id="captura" {...fadeUp} className="scroll-mt-24">
+        <motion.aside id="captura" {...fadeUp} className="w-full scroll-mt-24">
             <Card variant="surface">
                 <div className="chamfer-sm bg-[#0b0b0d] p-4 ring-1 ring-inset ring-[#2a2a30]">
                     <div className="mb-3 flex items-center justify-between">
@@ -194,7 +194,7 @@ export const LeadCaptureForm = () => {
                     <div className="flex flex-col space-y-4">
                         <div className="space-y-2">
                             <p className={labelStyles}>Escolha seu perfil no ecossistema</p>
-                            <div className="grid gap-2">
+                            <div className="grid gap-2 lg:grid-cols-2">
                                 <Controller
                                     name="archetype"
                                     control={control}
