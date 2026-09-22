@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, ShieldCheck } from "lucide-react";
 import { fadeUp } from "../../constants/transitions";
 import { Badge } from "../ui/badge";
-import { ButtonLink } from "../ui/button";
+import { Button } from "../ui/button";
 import { Card } from "../ui/card";
 import { ForgeBand } from "../ui/forge-band";
 import { SectionHeading } from "../ui/section-heading";
@@ -69,10 +69,20 @@ export const StoreSection = () => {
               Espaços cadastrados no acesso antecipado (Beta) recebem selo exclusivo de parceria, suporte direto da nossa equipe e destaque no mapa das cidades-piloto.
             </p>
           </div>
-          <ButtonLink href="#captura" className="shrink-0">
+          <Button
+            onClick={() => {
+              window.dispatchEvent(
+                new CustomEvent("forge:select-archetype", {
+                  detail: { archetype: "lojista", interest: "Loja / Espaço Geek" },
+                })
+              );
+              document.getElementById("captura")?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="shrink-0"
+          >
             Cadastrar minha Taverna (Espaço)
             <ArrowRight className="h-4 w-4" />
-          </ButtonLink>
+          </Button>
         </Card>
       </motion.div>
     </ForgeBand>

@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { archetypes } from "../constants/archetypes";
@@ -29,6 +29,7 @@ export const LeadCaptureForm = () => {
         handleSubmit,
         watch,
         control,
+        setValue,
         formState: { errors },
         reset
     } = useForm<ILeadForm>({
@@ -42,6 +43,16 @@ export const LeadCaptureForm = () => {
         },
         mode: "onChange"
     });
+
+    useEffect(() => {
+        const handleSelectArchetype = (e: Event) => {
+            const customEvent = e as CustomEvent<{ archetype: string; interest: string }>;
+            setValue("archetype", customEvent.detail.archetype, { shouldValidate: true, shouldDirty: true });
+            setValue("interest", customEvent.detail.interest, { shouldValidate: true, shouldDirty: true });
+        };
+        window.addEventListener("forge:select-archetype", handleSelectArchetype);
+        return () => window.removeEventListener("forge:select-archetype", handleSelectArchetype);
+    }, [setValue]);
 
     const formValues = watch();
     const { missions, progress, xp, levelText } = useLeadMissions(formValues);
