@@ -14,12 +14,12 @@ export const CtaSection = () => {
                 <SectionHeading
                     numeral="VI"
                     kicker="Faça parte da Forja"
-                    title="Pronto para forjar sua próxima mesa?"
-                    description="Seja você jogador de RPG, fã de board games ou dono de uma loja física geek, o TableForge é o seu ponto de encontro. Entre na lista e garanta seu acesso prioritário ao beta."
+                    title="Pronto para forjar a sua próxima mesa?"
+                    description="Seja você um Aventureiro de RPG, um Explorador de Tabuleiros e TCG, ou um Taverneiro (Lojista) com mesas prontas para jogo, este é o seu ecossistema. Entre na lista e garanta seu título de Fundador no acesso antecipado (Beta)."
                     align="center"
                 />
                 <ButtonLink href="#captura" size="lg" className="mt-8">
-                    Garantir acesso antecipado
+                    Garantir meu lugar na Forja
                     <ArrowRight className="h-4 w-4" />
                 </ButtonLink>
             </motion.div>

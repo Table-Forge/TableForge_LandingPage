@@ -16,8 +16,8 @@ export const HowItWorksSection = () => {
                 <SectionHeading
                     numeral="II"
                     kicker="Como funciona"
-                    title="Da busca cansativa à mesa certa em três passos"
-                    description="Um fluxo simples para sair da busca cansativa por jogadores e entrar em partidas com grupos mais alinhados ao seu estilo."
+                    title="Como a Forja funciona"
+                    description="Um guia rápido em 3 passos para abandonar a taverna vazia e encontrar a party perfeita para o seu estilo de jogo."
                 />
 
                 <div className="mt-10 grid gap-5 md:grid-cols-3">

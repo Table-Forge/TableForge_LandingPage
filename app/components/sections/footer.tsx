@@ -7,10 +7,10 @@ const LOGO_TEXT_URL =
     "https://table-forge.s3.amazonaws.com/development/public/images/6bb3f68c-851e-4e91-bba1-3bc6e8e136d9.webp?v=1";
 
 const FOOTER_LINKS = [
-    { href: "#recursos", label: "Recursos" },
-    { href: "#como-funciona", label: "Como funciona" },
-    { href: "#lojas", label: "Para Lojas" },
-    { href: "#faq", label: "FAQ" },
+    { href: "#topo", label: "Para Aventureiros" },
+    { href: "#como-funciona", label: "Como a Forja Funciona" },
+    { href: "#espacos-lojas", label: "Espaços & Lojas" },
+    { href: "#faq", label: "Dúvidas da Taverna" },
 ];
 
 const LEGAL_LINKS = [
@@ -47,7 +47,7 @@ export const Footer = () => {
                             <img src={LOGO_TEXT_URL} alt="TableForge" className="h-10 w-auto" />
                         </a>
                         <p className="max-w-xs text-xs leading-relaxed text-[#A1A1A1]">
-                            Conectando jogadores, mestres e lojas físicas por geolocalização para RPG, Board Games e eventos. Forje sua mesa. Encontre sua comunidade.
+                            Conectando aventureiros, mestres e tavernas através do nosso mapa. O ecossistema definitivo para campanhas de RPG, board games e TCG. Forje sua mesa. Reúna sua party.
                         </p>
                     </div>
 
@@ -65,7 +65,7 @@ export const Footer = () => {
                     </div>
 
                     <div>
-                        <FooterHeading>Contato</FooterHeading>
+                        <FooterHeading>Fale com os Mestres da Forja</FooterHeading>
                         <ul className="space-y-2 text-xs">
                             <li className="flex items-center gap-2">
                                 <Mail className="h-4 w-4 text-[#ff2400]" />

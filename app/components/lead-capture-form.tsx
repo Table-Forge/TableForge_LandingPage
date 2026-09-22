@@ -231,13 +231,12 @@ export const LeadCaptureForm = () => {
                     </div>
 
                     <Button type="submit" size="lg" className="w-full" isLoading={status === "loading"}>
-                        {progress === 100 ? "Desbloquear meu convite" : "Completar missão e entrar na lista"}
+                        Forjar Minha Ficha
                         <ArrowRight className="h-4 w-4" />
                     </Button>
 
                     <p className="text-xs text-[#717171]">
-                        Ao enviar, você concorda em receber comunicações sobre o beta e
-                        lançamento do app.
+                        Ao confirmar, você aceita receber nossos corvos mensageiros (e-mails) com atualizações sobre o Beta e a abertura da Forja.
                     </p>
 
                     {status !== "idle" && feedback ? (

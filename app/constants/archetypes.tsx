@@ -1,4 +1,4 @@
-import { CompassSpot, DieSpot, MasterScreenSpot, StoreSignSpot } from "../components/ui/spot-art";
+import { CompassSpot, DieSpot, MasterScreenSpot, StoreSignSpot, ScrollSpot } from "../components/ui/spot-art";
 
 export const archetypes = [
     {
@@ -20,9 +20,15 @@ export const archetypes = [
         Spot: DieSpot,
     },
     {
+        id: "tcg",
+        name: "Duelista / Colecionador (TCG)",
+        description: "Acesse o mural de eventos para encontrar torneios, duelos e mesas de troca de cartas na sua região.",
+        Spot: ScrollSpot,
+    },
+    {
         id: "lojista",
-        name: "Lojista / Espaço Geek",
-        description: "Divulgue suas mesas físicas, receba reservas e promova eventos.",
+        name: "Taverneiro / Espaço Geek",
+        description: "Transforme mesas vazias em lendas. Coloque sua loja no mapa, receba aventureiros, gerencie reservas e eventos.",
         Spot: StoreSignSpot,
     },
 ] as const;

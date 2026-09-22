@@ -12,8 +12,17 @@ function getMetadataBase() {
   }
 }
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
-const cinzel = Cinzel({ subsets: ["latin"], weight: "variable", variable: "--font-cinzel", display: "swap" });
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+const cinzel = Cinzel({
+  subsets: ["latin"],
+  weight: "variable",
+  variable: "--font-cinzel",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: getMetadataBase(),
@@ -22,7 +31,7 @@ export const metadata: Metadata = {
     template: "%s | TableForge",
   },
   description:
-    "O ponto de encontro para RPG, board games e lojas geek. Conecte-se com jogadores, reserve mesas em espaços parceiros e organize partidas por geolocalização.",
+    "A forja que conecta jogadores de RPG, board games e lojas locais. Descubra encontros, reserve mesas e explore o universo geek perto de você.",
   applicationName: "TableForge",
   category: "games",
   authors: [{ name: "TableForge" }],
@@ -39,10 +48,26 @@ export const metadata: Metadata = {
       { url: "/apple-touch-icon-60x60.png", sizes: "60x60", type: "image/png" },
       { url: "/apple-touch-icon-72x72.png", sizes: "72x72", type: "image/png" },
       { url: "/apple-touch-icon-76x76.png", sizes: "76x76", type: "image/png" },
-      { url: "/apple-touch-icon-114x114.png", sizes: "114x114", type: "image/png" },
-      { url: "/apple-touch-icon-120x120.png", sizes: "120x120", type: "image/png" },
-      { url: "/apple-touch-icon-144x144.png", sizes: "144x144", type: "image/png" },
-      { url: "/apple-touch-icon-152x152.png", sizes: "152x152", type: "image/png" },
+      {
+        url: "/apple-touch-icon-114x114.png",
+        sizes: "114x114",
+        type: "image/png",
+      },
+      {
+        url: "/apple-touch-icon-120x120.png",
+        sizes: "120x120",
+        type: "image/png",
+      },
+      {
+        url: "/apple-touch-icon-144x144.png",
+        sizes: "144x144",
+        type: "image/png",
+      },
+      {
+        url: "/apple-touch-icon-152x152.png",
+        sizes: "152x152",
+        type: "image/png",
+      },
     ],
   },
 };
@@ -53,8 +78,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={`h-full antialiased ${inter.variable} ${cinzel.variable}`}>
-      <body className="min-h-full flex flex-col bg-[#000000] text-[#faf3e0]">{children}</body>
+    <html
+      lang="pt-BR"
+      className={`h-full antialiased ${inter.variable} ${cinzel.variable}`}
+    >
+      <body className="min-h-full flex flex-col bg-[#000000] text-[#faf3e0]">
+        {children}
+      </body>
     </html>
   );
 }

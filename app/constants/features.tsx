@@ -10,39 +10,39 @@ export type Feature = {
 
 export const features: Feature[] = [
     {
-        title: "Geolocalização por raio, bairro ou cidade",
+        title: "Mapeie o seu Território",
         description:
-            "Encontre jogadores, mesas de RPG e partidas de board games perto de você com filtros inteligentes.",
+            "Deslize pelas mesas de RPG da sua região até dar match com a sua próxima campanha, ou explore o mural de anúncios para as jogatinas de board games. Tudo filtrado por raio, bairro ou cidade.",
         Spot: CompassSpot,
     },
     {
-        title: "Board Games e RPG em um só lugar",
+        title: "RPG e Tabuleiros no mesmo Ecossistema",
         description:
-            "Suporte nativo para organizar tanto campanhas longas de RPG quanto encontros casuais de jogos de tabuleiro.",
+            "O arsenal completo para organizar desde longas campanhas épicas de RPG até expedições estratégicas pelo mundo dos tabuleiros.",
         Spot: DieSpot,
     },
     {
-        title: "Lojas e Espaços Físicos Parceiros",
+        title: "Tavernas e Espaços Geek Parceiros",
         description:
-            "Descubra ludotecas e lojas geek na sua região, conheça a estrutura e solicite reserva de mesas no app.",
+            "Descubra as melhores lojas e espaços da sua região. Conheça a estrutura e reserve sua cadeira na mesa direto pelo app.",
         Spot: StoreSignSpot,
     },
     {
-        title: "Encontre sua mesa ou monte seu grupo",
+        title: "Reúna sua Party ou Encontre uma Mesa",
         description:
-            "Conecte-se com mestres, jogadores e organizadores que compartilham dos mesmos interesses e horários.",
+            "Conecte-se com Mestres, Exploradores e organizadores que compartilham os mesmos interesses e horários. Nenhuma aventura precisa ser solitária.",
         Spot: TableSpot,
     },
     {
-        title: "Eventos, Torneios e Calendário",
+        title: "Calendário de Eventos e Missões Locais",
         description:
-            "Acompanhe campeonatos, noites temáticas de jogos e encontros presenciais ou online com facilidade.",
+            "Fique de olho no quadro de avisos da sua cidade. Acompanhe campeonatos de TCG, noites temáticas e encontros presenciais com facilidade.",
         Spot: SealCalendarSpot,
     },
     {
-        title: "Chat e Comunicação Integrada",
+        title: "Chat Integrado para a sua Party",
         description:
-            "Converse no app para alinhar regras, formato da partida e tirar dúvidas direto com jogadores ou lojistas.",
+            "Converse dentro da Forja. Alinhe regras, combine o formato da jogatina e tire dúvidas diretamente com seus parceiros de mesa ou Taverneiros.",
         Spot: ScrollSpot,
     },
 ];

@@ -3,7 +3,7 @@ import { PageContent } from "./components/page-content";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://tableforge.com.br";
 const pageTitle =
-  "TableForge | O Ponto de Encontro para RPG, Board Games e Lojas Geek";
+  "TableForge | O Ponto de Encontro para RPG, Board Games e Lojas Locais";
 const pageDescription =
   "Conecte-se com jogadores de RPG e board games, descubra lojas físicas parceiras com reserva de mesas e organize encontros presenciais ou online por geolocalização.";
 
@@ -115,11 +115,7 @@ const structuredData = [
   },
 ];
 
-
-
 export default function Home() {
-
-
   return (
     <>
       <script
