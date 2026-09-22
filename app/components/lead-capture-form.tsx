@@ -1,16 +1,24 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Gamepad2, CheckCircle2, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useState } from "react";
-import { useForm, Controller } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { archetypes } from "../constants/archetypes";
 import { fadeUp } from "../constants/transitions";
-import { LeadSchema, ILeadForm } from "../schemas/lead-schema";
+import { ILeadForm, LeadSchema } from "../schemas/lead-schema";
 import { useLeadMissions } from "../hooks/use-lead-missions";
+import { Button } from "./ui/button";
+import { Card } from "./ui/card";
+import { KeystoneIcon } from "./ui/icons";
 
 type LeadStatus = "idle" | "loading" | "success" | "error";
+
+const fieldStyles =
+    "w-full rounded-lg border border-[#2D2D2D] bg-[#0b0b0d] px-4 py-3 text-sm text-[#faf3e0] outline-none transition-colors placeholder:text-[#717171] focus:border-[#ff2400]";
+const labelStyles = "text-sm text-[#D1D1D1]";
+const errorStyles = "text-xs text-[#ff5a36]";
 
 export const LeadCaptureForm = () => {
     const [status, setStatus] = useState<LeadStatus>("idle");
@@ -73,199 +81,175 @@ export const LeadCaptureForm = () => {
     }
 
     return (
-        <motion.aside
-            id="captura"
-            {...fadeUp}
-            className="rounded-3xl border border-[var(--color-secondary)]/30 bg-[var(--color-primary)] p-6 shadow-2xl shadow-[var(--color-black)]/20"
-        >
-            <div className="mb-4 rounded-2xl border border-[var(--color-grays_500)] bg-[var(--color-background)] p-4">
-                <div className="mb-3 flex items-center justify-between text-sm">
-                    <p className="inline-flex items-center gap-2 font-semibold">
-                        <Gamepad2 className="h-4 w-4 text-[var(--color-tertiary)]" />
-                        Missão de Entrada
-                    </p>
-                    <p className="text-[var(--color-grays_100)]">{xp} XP</p>
-                </div>
-                <div className="h-2.5 w-full overflow-hidden rounded-full bg-[var(--color-grays_500)]">
-                    <motion.div
-                        className="h-full rounded-full bg-[var(--color-tertiary)]"
-                        animate={{ width: `${progress}%` }}
-                        transition={{ duration: 0.35, ease: "easeOut" }}
-                    />
-                </div>
-                <div className="mt-2 flex items-center justify-between text-xs text-[var(--color-grays_100)]">
-                    <span>{progress}% completo</span>
-                    <span>{levelText}</span>
-                </div>
-            </div>
-
-            <h2 className="text-2xl font-semibold">Receba acesso ao beta</h2>
-            <p className="mt-2 text-sm text-[var(--color-grays_100)]">
-                Complete as missões abaixo para entrar na lista de acesso prioritário e parceiros fundadores.
-            </p>
-
-            <div className="mt-4 grid gap-2 sm:grid-cols-2">
-                {missions.map((mission) => (
-                    <div
-                        key={mission.label}
-                        className={`rounded-lg border px-3 py-2 text-xs ${mission.done
-                            ? "border-[var(--color-secondary)]/60 bg-[var(--color-secondary)]/10 text-[var(--color-grays_50)]"
-                            : "border-[var(--color-grays_500)] bg-[var(--color-background)] text-[var(--color-grays_200)]"
-                            }`}
-                    >
-                        <span className="inline-flex items-center gap-1.5">
-                            <CheckCircle2
-                                className={`h-3.5 w-3.5 ${mission.done
-                                    ? "text-[var(--color-secondary)]"
-                                    : "text-[var(--color-grays_300)]"
-                                    }`}
-                            />
-                            {mission.label}
-                        </span>
+        <motion.aside id="captura" {...fadeUp} className="scroll-mt-24">
+            <Card variant="surface">
+                <div className="chamfer-sm bg-[#0b0b0d] p-4 ring-1 ring-inset ring-[#2a2a30]">
+                    <div className="mb-3 flex items-center justify-between">
+                        <p className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#ff5a36]">
+                            <KeystoneIcon className="h-2.5 w-2.5 shrink-0 text-[#ff2400]" aria-hidden="true" />
+                            Missão de entrada
+                        </p>
+                        <p className="font-display text-sm font-bold text-[#ffb700]">{xp} XP</p>
                     </div>
-                ))}
-            </div>
-
-            <form onSubmit={handleSubmit(onSubmit)} className="mt-6 space-y-4">
-                <div className="space-y-2">
-                    <label htmlFor="name" className="text-sm text-[var(--color-grays_100)]">
-                        Nome ou Nome da Loja
-                    </label>
-                    <input
-                        id="name"
-                        {...register("name")}
-                        className="w-full rounded-xl border border-[var(--color-grays_500)] bg-[var(--color-background)] px-4 py-3 text-sm outline-none transition focus:border-[var(--color-secondary)]"
-                        placeholder="Seu nome ou da sua loja"
-                    />
-                    {errors.name && <span className="text-xs text-[var(--color-danger)]">{errors.name.message}</span>}
-                </div>
-
-                <div className="space-y-2">
-                    <label htmlFor="email" className="text-sm text-[var(--color-grays_100)]">
-                        E-mail
-                    </label>
-                    <input
-                        id="email"
-                        type="email"
-                        {...register("email")}
-                        className="w-full rounded-xl border border-[var(--color-grays_500)] bg-[var(--color-background)] px-4 py-3 text-sm outline-none transition focus:border-[var(--color-secondary)]"
-                        placeholder="voce@email.com ou contato@sualoja.com"
-                    />
-                    {errors.email && <span className="text-xs text-[var(--color-danger)]">{errors.email.message}</span>}
-                </div>
-
-                <div className="grid gap-4 sm:grid-cols-2">
-                    <div className="space-y-2">
-                        <label htmlFor="city" className="text-sm text-[var(--color-grays_100)]">
-                            Cidade
-                        </label>
-                        <input
-                            id="city"
-                            {...register("city")}
-                            className="w-full rounded-xl border border-[var(--color-grays_500)] bg-[var(--color-background)] px-4 py-3 text-sm outline-none transition focus:border-[var(--color-secondary)]"
-                            placeholder="Ex: Londrina, São Paulo..."
+                    <div className="h-2 w-full chamfer-sm bg-[#1E1E1E]">
+                        <motion.div
+                            className="h-full bg-[#ff2400] shadow-[inset_0_1px_0_rgba(250,243,224,0.22)]"
+                            animate={{ width: `${progress}%` }}
+                            transition={{ duration: 0.35, ease: "easeOut" }}
                         />
-                        {errors.city && <span className="text-xs text-[var(--color-danger)]">{errors.city.message}</span>}
                     </div>
-
-                    <div className="space-y-2">
-                        <label
-                            htmlFor="interest"
-                            className="text-sm text-[var(--color-grays_100)]"
-                        >
-                            Interesse principal
-                        </label>
-                        <select
-                            id="interest"
-                            {...register("interest")}
-                            className="w-full rounded-xl border border-[var(--color-grays_500)] bg-[var(--color-background)] px-4 py-3 text-sm outline-none transition focus:border-[var(--color-secondary)]"
-                        >
-                            <option value="" disabled>
-                                Selecione
-                            </option>
-                            <option value="RPG">RPG (D&D, Tormenta, etc.)</option>
-                            <option value="Board Games">Board Games (Jogos de Tabuleiro)</option>
-                            <option value="Loja / Espaço Geek">Loja / Espaço Físico Geek</option>
-                            <option value="TCG">TCG / Card Games</option>
-                            <option value="Outros">Outros</option>
-                        </select>
-                        {errors.interest && <span className="text-xs text-[var(--color-danger)]">{errors.interest.message}</span>}
+                    <div className="mt-2 flex items-center justify-between text-xs text-[#A1A1A1]">
+                        <span>{progress}% completo</span>
+                        <span className="font-semibold uppercase tracking-[0.16em] text-[#D1D1D1]">{levelText}</span>
                     </div>
                 </div>
 
-                <div className="space-y-2">
-                    <p className="text-sm text-[var(--color-grays_100)]">
-                        Escolha seu perfil no ecossistema
-                    </p>
-                    <div className="grid gap-2">
-                        <Controller
-                            name="archetype"
-                            control={control}
-                            render={({ field }) => (
-                                <>
-                                    {archetypes.map((archetype) => {
-                                        const Icon = archetype.icon;
-                                        const selected = field.value === archetype.id;
-
-                                        return (
-                                            <button
-                                                key={archetype.id}
-                                                type="button"
-                                                onClick={() => field.onChange(archetype.id)}
-                                                className={`flex w-full items-start gap-3 rounded-xl border px-3 py-3 text-left transition ${selected
-                                                    ? "border-[var(--color-secondary)] bg-[var(--color-secondary)]/10"
-                                                    : "border-[var(--color-grays_500)] bg-[var(--color-background)] hover:border-[var(--color-grays_300)]"
-                                                    }`}
-                                            >
-                                                <Icon className="mt-0.5 h-4 w-4 text-[var(--color-tertiary)]" />
-                                                <span>
-                                                    <span className="block text-sm font-semibold">
-                                                        {archetype.name}
-                                                    </span>
-                                                    <span className="block text-xs text-[var(--color-grays_100)]">
-                                                        {archetype.description}
-                                                    </span>
-                                                </span>
-                                            </button>
-                                        );
-                                    })}
-                                </>
-                            )}
-                        />
-                        {errors.archetype && <span className="text-xs text-[var(--color-danger)]">{errors.archetype.message}</span>}
-                    </div>
-                </div>
-
-                <button
-                    type="submit"
-                    disabled={status === "loading"}
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[var(--color-tertiary)] px-5 py-3 text-sm font-semibold transition hover:bg-[var(--color-secondary)] disabled:cursor-not-allowed disabled:opacity-70"
-                >
-                    {status === "loading"
-                        ? "Enviando..."
-                        : progress === 100
-                            ? "Desbloquear meu convite"
-                            : "Completar missão e entrar na lista"}
-                    <ArrowRight className="h-4 w-4" />
-                </button>
-
-                <p className="text-xs text-[var(--color-grays_200)]">
-                    Ao enviar, você concorda em receber comunicações sobre o beta e
-                    lançamento do app.
+                <h2 className="mt-5 font-display text-xl font-bold uppercase tracking-[0.04em] text-[#faf3e0]">
+                    Receba acesso ao beta
+                </h2>
+                <p className="mt-2 text-sm leading-relaxed text-[#A1A1A1]">
+                    Complete as missões abaixo para entrar na lista de acesso prioritário e parceiros fundadores.
                 </p>
 
-                {status !== "idle" && feedback ? (
-                    <p
-                        className={
-                            status === "success"
-                                ? "rounded-lg border border-[var(--color-secondary)]/50 bg-[var(--color-secondary)]/10 px-3 py-2 text-sm text-[var(--color-grays_50)]"
-                                : "rounded-lg border border-[var(--color-danger)]/50 bg-[var(--color-danger)]/10 px-3 py-2 text-sm text-[var(--color-grays_50)]"
-                        }
-                    >
-                        {feedback}
+                <div className="mt-4 grid gap-2 sm:grid-cols-2">
+                    {missions.map((mission) => (
+                        <div
+                            key={mission.label}
+                            className={`flex items-center gap-2 chamfer-sm border px-3 py-2 text-xs ${mission.done
+                                ? "border-[#ff2400]/50 bg-[#ff2400]/10 text-[#faf3e0]"
+                                : "border-[#2D2D2D] bg-[#0b0b0d] text-[#A1A1A1]"
+                                }`}
+                        >
+                            <KeystoneIcon
+                                className={`h-3 w-3 shrink-0 ${mission.done ? "text-[#ff2400]" : "text-[#4A4A4A]"}`}
+                                aria-hidden="true"
+                            />
+                            {mission.label}
+                        </div>
+                    ))}
+                </div>
+
+                <form onSubmit={handleSubmit(onSubmit)} className="mt-6 space-y-4">
+                    <div className="space-y-2">
+                        <label htmlFor="name" className={labelStyles}>
+                            Nome ou Nome da Loja
+                        </label>
+                        <input
+                            id="name"
+                            {...register("name")}
+                            className={fieldStyles}
+                            placeholder="Seu nome ou da sua loja"
+                        />
+                        {errors.name && <span className={errorStyles}>{errors.name.message}</span>}
+                    </div>
+
+                    <div className="space-y-2">
+                        <label htmlFor="email" className={labelStyles}>
+                            E-mail
+                        </label>
+                        <input
+                            id="email"
+                            type="email"
+                            {...register("email")}
+                            className={fieldStyles}
+                            placeholder="voce@email.com ou contato@sualoja.com"
+                        />
+                        {errors.email && <span className={errorStyles}>{errors.email.message}</span>}
+                    </div>
+
+                    <div className="grid gap-4 sm:grid-cols-2">
+                        <div className="space-y-2">
+                            <label htmlFor="city" className={labelStyles}>
+                                Cidade
+                            </label>
+                            <input
+                                id="city"
+                                {...register("city")}
+                                className={fieldStyles}
+                                placeholder="Ex: Londrina, São Paulo..."
+                            />
+                            {errors.city && <span className={errorStyles}>{errors.city.message}</span>}
+                        </div>
+
+                        <div className="space-y-2">
+                            <label htmlFor="interest" className={labelStyles}>
+                                Interesse principal
+                            </label>
+                            <select id="interest" {...register("interest")} className={fieldStyles}>
+                                <option value="" disabled>
+                                    Selecione
+                                </option>
+                                <option value="RPG">RPG (D&D, Tormenta, etc.)</option>
+                                <option value="Board Games">Board Games (Jogos de Tabuleiro)</option>
+                                <option value="Loja / Espaço Geek">Loja / Espaço Físico Geek</option>
+                                <option value="TCG">TCG / Card Games</option>
+                                <option value="Outros">Outros</option>
+                            </select>
+                            {errors.interest && <span className={errorStyles}>{errors.interest.message}</span>}
+                        </div>
+                    </div>
+
+                    <div className="space-y-2">
+                        <p className={labelStyles}>Escolha seu perfil no ecossistema</p>
+                        <div className="grid gap-2">
+                            <Controller
+                                name="archetype"
+                                control={control}
+                                render={({ field }) => (
+                                    <>
+                                        {archetypes.map((archetype) => {
+                                            const Spot = archetype.Spot;
+                                            const selected = field.value === archetype.id;
+
+                                            return (
+                                                <button
+                                                    key={archetype.id}
+                                                    type="button"
+                                                    onClick={() => field.onChange(archetype.id)}
+                                                    className={`flex w-full items-center gap-3 chamfer-sm border px-3 py-3 text-left transition-colors ${selected
+                                                        ? "border-[#ff2400] bg-[#ff2400]/10"
+                                                        : "border-[#2D2D2D] bg-[#0b0b0d] hover:border-[#4A4A4A]"
+                                                        }`}
+                                                >
+                                                    <Spot className="h-11 w-11 shrink-0" />
+                                                    <span>
+                                                        <span className="block font-display text-xs font-bold uppercase tracking-[0.06em] text-[#faf3e0]">
+                                                            {archetype.name}
+                                                        </span>
+                                                        <span className="mt-0.5 block text-xs text-[#A1A1A1]">
+                                                            {archetype.description}
+                                                        </span>
+                                                    </span>
+                                                </button>
+                                            );
+                                        })}
+                                    </>
+                                )}
+                            />
+                            {errors.archetype && <span className={errorStyles}>{errors.archetype.message}</span>}
+                        </div>
+                    </div>
+
+                    <Button type="submit" size="lg" className="w-full" isLoading={status === "loading"}>
+                        {progress === 100 ? "Desbloquear meu convite" : "Completar missão e entrar na lista"}
+                        <ArrowRight className="h-4 w-4" />
+                    </Button>
+
+                    <p className="text-xs text-[#717171]">
+                        Ao enviar, você concorda em receber comunicações sobre o beta e
+                        lançamento do app.
                     </p>
-                ) : null}
-            </form>
+
+                    {status !== "idle" && feedback ? (
+                        <p
+                            className={`chamfer-sm border border-[#ff2400]/50 bg-[#ff2400]/10 px-3 py-2 text-sm ${status === "success" ? "text-[#faf3e0]" : "text-[#ff5a36]"
+                                }`}
+                        >
+                            {feedback}
+                        </p>
+                    ) : null}
+                </form>
+            </Card>
         </motion.aside>
     );
 };

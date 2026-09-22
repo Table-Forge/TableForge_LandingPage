@@ -1,93 +1,83 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CheckCircle2, MapPin, ArrowRight, Dices, Store, CalendarDays } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { fadeUp } from "../../constants/transitions";
 import { LeadCaptureForm } from "../lead-capture-form";
+import { ButtonLink } from "../ui/button";
+import { Card } from "../ui/card";
+import { KeystoneIcon } from "../ui/icons";
+import { ForgeKicker } from "../ui/section-heading";
+
+const LOGO_TEXT_URL =
+    "https://table-forge.s3.amazonaws.com/development/public/images/6bb3f68c-851e-4e91-bba1-3bc6e8e136d9.webp?v=1";
+
+const HERO_PILLARS = [
+    { label: "Missão", value: "Unir mesas e jogadores" },
+    { label: "Recompensa", value: "Acesso prioritário ao beta" },
+    { label: "Comunidade", value: "Jogadores, mestres e lojas" },
+];
+
+const HERO_HIGHLIGHTS = [
+    "Mesas de RPG e board games",
+    "Lojas parceiras com reserva de mesas",
+    "Busca por cidade, bairro e raio",
+    "Eventos, torneios e calendário",
+];
 
 export const HeroSection = () => {
     return (
         <section
             id="topo"
-            className="grid items-start gap-10 lg:grid-cols-[1.05fr_.95fr]"
+            className="mx-auto grid max-w-6xl items-start gap-10 px-6 pb-16 pt-12 md:px-10 lg:grid-cols-[1.05fr_.95fr] lg:pt-16"
         >
-            <motion.div {...fadeUp} className="space-y-6">
-                <p className="inline-flex items-center gap-2 rounded-full bg-[var(--color-tertiary_10)] px-4 py-2 text-sm text-[var(--color-grays_100)]">
-                    <CheckCircle2 className="h-4 w-4 text-[var(--color-tertiary)]" />
-                    O ponto de encontro para RPG, board games e lojas geek
-                </p>
+            <motion.div {...fadeUp} className="space-y-8">
+                <ForgeKicker>RPG, board games e lojas geek</ForgeKicker>
 
-                <h1 className="max-w-3xl">
-                    <img
-                        src="https://table-forge.s3.amazonaws.com/development/public/images/6bb3f68c-851e-4e91-bba1-3bc6e8e136d9.webp?v=1"
-                        alt="TableForge Logo"
-                        className="h-22 w-auto"
-                    />
-                    <span className="mt-3 block text-2xl font-semibold leading-tight sm:text-4xl lg:text-5xl">
-                        Encontre jogadores, partidas de board games e lojas perto de você.
+                <h1 className="max-w-3xl space-y-4">
+                    <img src={LOGO_TEXT_URL} alt="TableForge" className="h-16 w-auto sm:h-20" />
+                    <span className="block font-display text-3xl font-bold uppercase leading-[1.08] tracking-[0.02em] text-[#faf3e0] sm:text-4xl lg:text-5xl">
+                        Encontre jogadores, partidas de board games e lojas <span className="text-[#ff5a36]">perto de você</span>.
                     </span>
                 </h1>
 
-                <p className="max-w-xl text-lg text-[var(--color-grays_100)]">
+                <p className="max-w-xl text-base leading-relaxed text-[#D1D1D1] sm:text-lg">
                     O TableForge conecta jogadores, mestres e lojas físicas por geolocalização.
                     Descubra mesas de RPG e board games, participe de eventos e reserve mesas
                     em espaços parceiros.
                 </p>
 
                 <div className="grid gap-3 sm:grid-cols-3">
-                    <div className="rounded-xl border border-[var(--color-grays_500)] bg-[var(--color-primary)] px-4 py-3">
-                        <p className="text-xs uppercase tracking-wide text-[var(--color-grays_200)]">
-                            Missão
-                        </p>
-                        <p className="mt-1 text-sm font-semibold">Unir mesas e jogadores</p>
-                    </div>
-                    <div className="rounded-xl border border-[var(--color-grays_500)] bg-[var(--color-primary)] px-4 py-3">
-                        <p className="text-xs uppercase tracking-wide text-[var(--color-grays_200)]">
-                            Recompensa
-                        </p>
-                        <p className="mt-1 text-sm font-semibold">Acesso prioritário ao beta</p>
-                    </div>
-                    <div className="rounded-xl border border-[var(--color-grays_500)] bg-[var(--color-primary)] px-4 py-3">
-                        <p className="text-xs uppercase tracking-wide text-[var(--color-grays_200)]">
-                            Comunidade
-                        </p>
-                        <p className="mt-1 text-sm font-semibold">Jogadores, mestres e lojas</p>
-                    </div>
+                    {HERO_PILLARS.map((pillar) => (
+                        <Card key={pillar.label} padding="sm">
+                            <p className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#ff5a36]">
+                                <KeystoneIcon className="h-2.5 w-2.5 shrink-0 text-[#ff2400]" aria-hidden="true" />
+                                {pillar.label}
+                            </p>
+                            <p className="mt-2 font-display text-sm font-bold uppercase tracking-[0.04em] text-[#faf3e0]">
+                                {pillar.value}
+                            </p>
+                        </Card>
+                    ))}
                 </div>
 
-                <ul className="grid gap-3 text-sm text-[var(--color-grays_100)] sm:grid-cols-2">
-                    <li className="flex items-center gap-2 rounded-xl border border-[var(--color-grays_500)] bg-[var(--color-primary)] px-3 py-2">
-                        <Dices className="h-4 w-4 text-[var(--color-tertiary)]" />
-                        Mesas de RPG e board games
-                    </li>
-                    <li className="flex items-center gap-2 rounded-xl border border-[var(--color-grays_500)] bg-[var(--color-primary)] px-3 py-2">
-                        <Store className="h-4 w-4 text-[var(--color-tertiary)]" />
-                        Lojas parceiras com reserva de mesas
-                    </li>
-                    <li className="flex items-center gap-2 rounded-xl border border-[var(--color-grays_500)] bg-[var(--color-primary)] px-3 py-2">
-                        <MapPin className="h-4 w-4 text-[var(--color-tertiary)]" />
-                        Busca por cidade, bairro e raio
-                    </li>
-                    <li className="flex items-center gap-2 rounded-xl border border-[var(--color-grays_500)] bg-[var(--color-primary)] px-3 py-2">
-                        <CalendarDays className="h-4 w-4 text-[var(--color-tertiary)]" />
-                        Eventos, torneios e calendário
-                    </li>
+                <ul className="grid gap-2 text-sm text-[#D1D1D1] sm:grid-cols-2">
+                    {HERO_HIGHLIGHTS.map((item) => (
+                        <li key={item} className="flex items-center gap-2">
+                            <KeystoneIcon className="h-3 w-3 shrink-0 text-[#ff2400]" aria-hidden="true" />
+                            {item}
+                        </li>
+                    ))}
                 </ul>
 
                 <div className="flex flex-wrap gap-3">
-                    <a
-                        href="#captura"
-                        className="inline-flex items-center gap-2 rounded-full bg-[var(--color-tertiary)] px-6 py-3 text-sm font-semibold transition hover:bg-[var(--color-secondary)]"
-                    >
+                    <ButtonLink href="#captura" size="lg">
                         Quero acesso antecipado
                         <ArrowRight className="h-4 w-4" />
-                    </a>
-                    <a
-                        href="#lojas"
-                        className="inline-flex items-center rounded-full border border-[var(--color-grays_300)] px-6 py-3 text-sm font-semibold text-[var(--color-grays_50)] transition hover:border-[var(--color-secondary)] hover:text-[var(--color-white)]"
-                    >
+                    </ButtonLink>
+                    <ButtonLink href="#lojas" size="lg" variant="outline">
                         Para lojas parceiras
-                    </a>
+                    </ButtonLink>
                 </div>
             </motion.div>
 

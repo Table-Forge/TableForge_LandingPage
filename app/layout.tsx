@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Cinzel, Inter } from "next/font/google";
 import "./globals.css";
 
 const defaultSiteUrl = "https://tableforge.com.br";
@@ -12,15 +12,8 @@ function getMetadataBase() {
   }
 }
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
+const cinzel = Cinzel({ subsets: ["latin"], weight: "variable", variable: "--font-cinzel", display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: getMetadataBase(),
@@ -54,18 +47,14 @@ export const metadata: Metadata = {
   },
 };
 
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="pt-BR"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="pt-BR" className={`h-full antialiased ${inter.variable} ${cinzel.variable}`}>
+      <body className="min-h-full flex flex-col bg-[#000000] text-[#faf3e0]">{children}</body>
     </html>
   );
 }
