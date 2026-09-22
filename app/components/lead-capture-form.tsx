@@ -68,7 +68,7 @@ export const LeadCaptureForm = () => {
   }, [setValue]);
 
   const formValues = watch();
-  const { missions, progress, xp, levelText } = useLeadMissions(formValues);
+  const { missions, progress, topText, leftText, rightText } = useLeadMissions(formValues);
 
   async function onSubmit(data: ILeadForm) {
     setStatus("loading");
@@ -120,7 +120,7 @@ export const LeadCaptureForm = () => {
               Acendendo a Forja
             </p>
             <p className="font-display text-sm font-bold text-[#ffb700]">
-              {xp} XP
+              {topText}
             </p>
           </div>
           <div className="h-2 w-full chamfer-sm bg-[#1E1E1E]">
@@ -131,9 +131,9 @@ export const LeadCaptureForm = () => {
             />
           </div>
           <div className="mt-2 flex items-center justify-between text-xs text-[#A1A1A1]">
-            <span>{progress}% completo</span>
+            <span>{leftText}</span>
             <span className="font-semibold uppercase tracking-[0.16em] text-[#D1D1D1]">
-              {levelText}
+              {rightText}
             </span>
           </div>
         </div>
