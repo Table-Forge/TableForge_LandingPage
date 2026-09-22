@@ -4,7 +4,6 @@ import { Header } from "./sections/header";
 import { HeroSection } from "./sections/hero-section";
 import { FeaturesSection } from "./sections/features-section";
 import { HowItWorksSection } from "./sections/how-it-works-section";
-import { HighlightsSection } from "./sections/highlights-section";
 import { StoreSection } from "./sections/store-section";
 import { FaqSection } from "./sections/faq-section";
 import { CtaSection } from "./sections/cta-section";
@@ -17,7 +16,6 @@ export const PageContent = () => {
             <HeroSection />
             <FeaturesSection />
             <HowItWorksSection />
-            <HighlightsSection />
             <StoreSection />
             <FaqSection />
             <CtaSection />

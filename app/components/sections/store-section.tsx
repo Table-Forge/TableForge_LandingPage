@@ -36,7 +36,7 @@ export const StoreSection = () => {
     <ForgeBand id="espacos-lojas" className="scroll-mt-24">
       <motion.div {...fadeUp}>
         <SectionHeading
-          numeral="IV"
+          numeral="III"
           kicker="Para Tavernas, Lojas e Espaços Geek"
           title="Transforme mesas vazias em novas aventuras."
           description="A Forja coloca o seu negócio diretamente no mapa da comunidade. Mostre a sua estrutura, gerencie o fluxo de reservas e anuncie suas jogatinas de board games, campanhas de RPG e noites de combate e troca de TCG para atrair o público local para dentro da sua loja."

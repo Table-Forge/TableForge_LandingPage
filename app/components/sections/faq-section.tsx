@@ -10,7 +10,7 @@ import { SectionHeading } from "../ui/section-heading";
 export const FaqSection = () => {
     return (
         <motion.section id="faq" {...fadeUp} className="mx-auto max-w-6xl scroll-mt-24 px-6 py-16 md:px-10">
-            <SectionHeading numeral="V" kicker="Perguntas frequentes" title="Dúvidas da Taverna (FAQ)" />
+            <SectionHeading numeral="IV" kicker="Perguntas frequentes" title="Dúvidas da Taverna (FAQ)" />
 
             <ForgeDivider label="Pergaminho de respostas" className="my-8" />
 

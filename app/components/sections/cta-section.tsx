@@ -11,7 +11,7 @@ export const CtaSection = () => {
         <ForgeBand>
             <motion.div {...fadeUp} className="flex flex-col items-center">
                 <SectionHeading
-                    numeral="VI"
+                    numeral="V"
                     kicker="Faça parte da Forja"
                     title="Pronto para forjar a sua próxima mesa?"
                     description="Seja você um Aventureiro de RPG, um Explorador de Tabuleiros e TCG, ou um Taverneiro (Lojista) com mesas prontas para jogo, este é o seu ecossistema. Entre na lista e garanta seu título de Fundador no acesso antecipado (Beta)."

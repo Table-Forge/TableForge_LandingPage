@@ -47,7 +47,11 @@ export const HeroSection = () => {
 
         <div className="grid w-full gap-3 text-left sm:grid-cols-3">
           {HERO_PILLARS.map((pillar) => (
-            <Card key={pillar.label} padding="sm" className="flex flex-col items-center text-center">
+            <Card
+              key={pillar.label}
+              padding="sm"
+              className="flex flex-col items-center text-center"
+            >
               <p className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#ff5a36]">
                 <KeystoneIcon
                   className="h-2.5 w-2.5 shrink-0 text-[#ff2400]"
@@ -64,7 +68,10 @@ export const HeroSection = () => {
 
         <ul className="grid w-full max-w-2xl gap-3 text-sm text-[#D1D1D1] sm:grid-cols-2">
           {HERO_HIGHLIGHTS.map((item) => (
-            <li key={item} className="flex items-center justify-center gap-2 text-left sm:justify-start">
+            <li
+              key={item}
+              className="flex items-center justify-center gap-2 text-left sm:justify-start"
+            >
               <KeystoneIcon
                 className="h-3 w-3 shrink-0 text-[#ff2400]"
                 aria-hidden="true"
@@ -79,7 +86,7 @@ export const HeroSection = () => {
             Garantir meu lugar na Forja
             <ArrowRight className="h-4 w-4" />
           </ButtonLink>
-          <ButtonLink href="#lojas" size="lg" variant="outline">
+          <ButtonLink href="#espacos-lojas" size="lg" variant="outline">
             Para Tavernas (Lojas Parceiras)
           </ButtonLink>
         </div>
