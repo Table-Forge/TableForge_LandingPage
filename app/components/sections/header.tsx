@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { ButtonLink } from "../ui/button";
@@ -29,10 +30,12 @@ export const Header = () => {
           href="#topo"
           className="inline-flex items-center gap-2 drop-shadow-[0_0_18px_rgba(255,36,0,0.35)]"
         >
-          <img src={LOGO_MARK_URL} alt="TableForge" className="h-12 w-auto" />
-          <img
+          <Image src={LOGO_MARK_URL} alt="TableForge" width={48} height={48} className="h-12 w-auto" />
+          <Image
             src={LOGO_TEXT_URL}
             alt=""
+            width={150}
+            height={28}
             aria-hidden="true"
             className="hidden h-7 w-auto sm:block"
           />

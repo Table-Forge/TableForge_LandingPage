@@ -3,6 +3,8 @@ import { Heart, Mail } from "lucide-react";
 import { ForgeDivider } from "../ui/forge-divider";
 import { KeystoneIcon } from "../ui/icons";
 
+import Image from "next/image";
+
 const LOGO_TEXT_URL =
     "https://table-forge.s3.amazonaws.com/development/public/images/6bb3f68c-851e-4e91-bba1-3bc6e8e136d9.webp?v=1";
 
@@ -44,7 +46,7 @@ export const Footer = () => {
                 <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
                     <div className="space-y-4 lg:col-span-2">
                         <a href="#topo" className="inline-block drop-shadow-[0_0_18px_rgba(255,36,0,0.35)]">
-                            <img src={LOGO_TEXT_URL} alt="TableForge" className="h-10 w-auto" />
+                            <Image src={LOGO_TEXT_URL} alt="TableForge" width={150} height={40} className="h-10 w-auto" />
                         </a>
                         <p className="max-w-xs text-xs leading-relaxed text-[#A1A1A1]">
                             Conectando aventureiros, mestres e tavernas através do nosso mapa. O ecossistema definitivo para campanhas de RPG, board games e TCG. Forje sua mesa. Reúna sua party.
