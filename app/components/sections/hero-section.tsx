@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { fadeUp } from "../../constants/transitions";
-import { LeadCaptureForm } from "../lead-capture-form";
 import { ButtonLink } from "../ui/button";
 import { Card } from "../ui/card";
 import { KeystoneIcon } from "../ui/icons";
@@ -26,29 +25,29 @@ export const HeroSection = () => {
   return (
     <section
       id="topo"
-      className="mx-auto grid max-w-6xl items-start gap-10 px-6 pb-16 pt-12 md:px-10 lg:grid-cols-[1.05fr_.95fr] lg:pt-16"
+      className="mx-auto flex max-w-4xl flex-col items-center gap-10 px-6 pb-16 pt-12 text-center md:px-10 lg:pt-16"
     >
-      <motion.div {...fadeUp} className="space-y-8">
+      <motion.div {...fadeUp} className="flex flex-col items-center space-y-8">
         <ForgeKicker>
           A forja que conecta jogadores de RPG, board games e lojas locais
         </ForgeKicker>
 
         <h1 className="max-w-3xl space-y-4">
-          <span className="block font-display text-3xl font-bold uppercase leading-[1.08] tracking-[0.02em] text-[#faf3e0] sm:text-4xl lg:text-5xl">
+          <span className="block font-display text-4xl font-bold uppercase leading-[1.08] tracking-[0.02em] text-[#faf3e0] sm:text-5xl lg:text-6xl">
             Forje sua mesa.
             <span className="text-[#ff5a36]"> Encontre sua comunidade</span>.
           </span>
         </h1>
 
         <p className="max-w-xl text-base leading-relaxed text-[#D1D1D1] sm:text-lg">
-          Abra o mapa para a sua próxima aventura. Campanhas deRPG, partidas de
+          Abra o mapa para a sua próxima aventura. Campanhas de RPG, partidas de
           board games, jogadores, eventos e lojas parceiras, tudo conectado em
           um único ecossistema.
         </p>
 
-        <div className="grid gap-3 sm:grid-cols-3">
+        <div className="grid w-full gap-3 text-left sm:grid-cols-3">
           {HERO_PILLARS.map((pillar) => (
-            <Card key={pillar.label} padding="sm">
+            <Card key={pillar.label} padding="sm" className="flex flex-col items-center text-center">
               <p className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#ff5a36]">
                 <KeystoneIcon
                   className="h-2.5 w-2.5 shrink-0 text-[#ff2400]"
@@ -63,9 +62,9 @@ export const HeroSection = () => {
           ))}
         </div>
 
-        <ul className="grid gap-2 text-sm text-[#D1D1D1] sm:grid-cols-2">
+        <ul className="grid w-full max-w-2xl gap-3 text-sm text-[#D1D1D1] sm:grid-cols-2">
           {HERO_HIGHLIGHTS.map((item) => (
-            <li key={item} className="flex items-center gap-2">
+            <li key={item} className="flex items-center justify-center gap-2 text-left sm:justify-start">
               <KeystoneIcon
                 className="h-3 w-3 shrink-0 text-[#ff2400]"
                 aria-hidden="true"
@@ -75,7 +74,7 @@ export const HeroSection = () => {
           ))}
         </ul>
 
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap justify-center gap-3">
           <ButtonLink href="#captura" size="lg">
             Garantir meu lugar na Forja
             <ArrowRight className="h-4 w-4" />
@@ -85,8 +84,6 @@ export const HeroSection = () => {
           </ButtonLink>
         </div>
       </motion.div>
-
-      <LeadCaptureForm />
     </section>
   );
 };

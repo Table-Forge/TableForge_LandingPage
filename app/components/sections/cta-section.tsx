@@ -1,11 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import { fadeUp } from "../../constants/transitions";
-import { ButtonLink } from "../ui/button";
 import { ForgeBand } from "../ui/forge-band";
 import { SectionHeading } from "../ui/section-heading";
+import { LeadCaptureForm } from "../lead-capture-form";
 
 export const CtaSection = () => {
     return (
@@ -18,10 +17,10 @@ export const CtaSection = () => {
                     description="Seja você um Aventureiro de RPG, um Explorador de Tabuleiros e TCG, ou um Taverneiro (Lojista) com mesas prontas para jogo, este é o seu ecossistema. Entre na lista e garanta seu título de Fundador no acesso antecipado (Beta)."
                     align="center"
                 />
-                <ButtonLink href="#captura" size="lg" className="mt-8">
-                    Garantir meu lugar na Forja
-                    <ArrowRight className="h-4 w-4" />
-                </ButtonLink>
+                
+                <div className="mt-12 w-full max-w-md text-left">
+                    <LeadCaptureForm />
+                </div>
             </motion.div>
         </ForgeBand>
     );
