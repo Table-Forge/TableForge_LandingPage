@@ -111,7 +111,7 @@ export const LeadCaptureForm = () => {
                     Complete as missões abaixo para entrar na lista de acesso prioritário e parceiros fundadores.
                 </p>
 
-                <div className="mt-4 grid gap-2 sm:grid-cols-2">
+                <div className="mt-4 grid gap-2 sm:grid-cols-3 md:grid-cols-5">
                     {missions.map((mission) => (
                         <div
                             key={mission.label}
@@ -129,124 +129,130 @@ export const LeadCaptureForm = () => {
                     ))}
                 </div>
 
-                <form onSubmit={handleSubmit(onSubmit)} className="mt-6 space-y-4">
-                    <div className="space-y-2">
-                        <label htmlFor="name" className={labelStyles}>
-                            Nome ou Nome da Loja
-                        </label>
-                        <input
-                            id="name"
-                            {...register("name")}
-                            className={fieldStyles}
-                            placeholder="Seu nome ou da sua loja"
-                        />
-                        {errors.name && <span className={errorStyles}>{errors.name.message}</span>}
-                    </div>
-
-                    <div className="space-y-2">
-                        <label htmlFor="email" className={labelStyles}>
-                            E-mail
-                        </label>
-                        <input
-                            id="email"
-                            type="email"
-                            {...register("email")}
-                            className={fieldStyles}
-                            placeholder="voce@email.com ou contato@sualoja.com"
-                        />
-                        {errors.email && <span className={errorStyles}>{errors.email.message}</span>}
-                    </div>
-
-                    <div className="grid gap-4 sm:grid-cols-2">
+                <form onSubmit={handleSubmit(onSubmit)} className="mt-8 grid gap-8 md:grid-cols-2">
+                    <div className="space-y-4">
                         <div className="space-y-2">
-                            <label htmlFor="city" className={labelStyles}>
-                                Cidade
+                            <label htmlFor="name" className={labelStyles}>
+                                Nome ou Nome da Loja
                             </label>
                             <input
-                                id="city"
-                                {...register("city")}
+                                id="name"
+                                {...register("name")}
                                 className={fieldStyles}
-                                placeholder="Ex: Londrina, São Paulo..."
+                                placeholder="Seu nome ou da sua loja"
                             />
-                            {errors.city && <span className={errorStyles}>{errors.city.message}</span>}
+                            {errors.name && <span className={errorStyles}>{errors.name.message}</span>}
                         </div>
 
                         <div className="space-y-2">
-                            <label htmlFor="interest" className={labelStyles}>
-                                Interesse principal
+                            <label htmlFor="email" className={labelStyles}>
+                                E-mail
                             </label>
-                            <select id="interest" {...register("interest")} className={fieldStyles}>
-                                <option value="" disabled>
-                                    Selecione
-                                </option>
-                                <option value="RPG">RPG (D&D, Tormenta, etc.)</option>
-                                <option value="Board Games">Board Games (Jogos de Tabuleiro)</option>
-                                <option value="Loja / Espaço Geek">Loja / Espaço Físico Geek</option>
-                                <option value="TCG">TCG / Card Games</option>
-                                <option value="Outros">Outros</option>
-                            </select>
-                            {errors.interest && <span className={errorStyles}>{errors.interest.message}</span>}
-                        </div>
-                    </div>
-
-                    <div className="space-y-2">
-                        <p className={labelStyles}>Escolha seu perfil no ecossistema</p>
-                        <div className="grid gap-2">
-                            <Controller
-                                name="archetype"
-                                control={control}
-                                render={({ field }) => (
-                                    <>
-                                        {archetypes.map((archetype) => {
-                                            const Spot = archetype.Spot;
-                                            const selected = field.value === archetype.id;
-
-                                            return (
-                                                <button
-                                                    key={archetype.id}
-                                                    type="button"
-                                                    onClick={() => field.onChange(archetype.id)}
-                                                    className={`flex w-full items-center gap-3 chamfer-sm border px-3 py-3 text-left transition-colors ${selected
-                                                        ? "border-[#ff2400] bg-[#ff2400]/10"
-                                                        : "border-[#2D2D2D] bg-[#0b0b0d] hover:border-[#4A4A4A]"
-                                                        }`}
-                                                >
-                                                    <Spot className="h-11 w-11 shrink-0" />
-                                                    <span>
-                                                        <span className="block font-display text-xs font-bold uppercase tracking-[0.06em] text-[#faf3e0]">
-                                                            {archetype.name}
-                                                        </span>
-                                                        <span className="mt-0.5 block text-xs text-[#A1A1A1]">
-                                                            {archetype.description}
-                                                        </span>
-                                                    </span>
-                                                </button>
-                                            );
-                                        })}
-                                    </>
-                                )}
+                            <input
+                                id="email"
+                                type="email"
+                                {...register("email")}
+                                className={fieldStyles}
+                                placeholder="voce@email.com ou contato@sualoja.com"
                             />
-                            {errors.archetype && <span className={errorStyles}>{errors.archetype.message}</span>}
+                            {errors.email && <span className={errorStyles}>{errors.email.message}</span>}
+                        </div>
+
+                        <div className="grid gap-4 sm:grid-cols-2">
+                            <div className="space-y-2">
+                                <label htmlFor="city" className={labelStyles}>
+                                    Cidade
+                                </label>
+                                <input
+                                    id="city"
+                                    {...register("city")}
+                                    className={fieldStyles}
+                                    placeholder="Ex: Londrina, São Paulo..."
+                                />
+                                {errors.city && <span className={errorStyles}>{errors.city.message}</span>}
+                            </div>
+
+                            <div className="space-y-2">
+                                <label htmlFor="interest" className={labelStyles}>
+                                    Interesse principal
+                                </label>
+                                <select id="interest" {...register("interest")} className={fieldStyles}>
+                                    <option value="" disabled>
+                                        Selecione
+                                    </option>
+                                    <option value="RPG">RPG (D&D, Tormenta, etc.)</option>
+                                    <option value="Board Games">Board Games (Jogos de Tabuleiro)</option>
+                                    <option value="Loja / Espaço Geek">Loja / Espaço Físico Geek</option>
+                                    <option value="TCG">TCG / Card Games</option>
+                                    <option value="Outros">Outros</option>
+                                </select>
+                                {errors.interest && <span className={errorStyles}>{errors.interest.message}</span>}
+                            </div>
                         </div>
                     </div>
 
-                    <Button type="submit" size="lg" className="w-full" isLoading={status === "loading"}>
-                        Forjar Minha Ficha
-                        <ArrowRight className="h-4 w-4" />
-                    </Button>
+                    <div className="flex flex-col space-y-4">
+                        <div className="space-y-2">
+                            <p className={labelStyles}>Escolha seu perfil no ecossistema</p>
+                            <div className="grid gap-2">
+                                <Controller
+                                    name="archetype"
+                                    control={control}
+                                    render={({ field }) => (
+                                        <>
+                                            {archetypes.map((archetype) => {
+                                                const Spot = archetype.Spot;
+                                                const selected = field.value === archetype.id;
 
-                    <p className="text-xs text-[#717171]">
-                        Ao confirmar, você aceita receber nossos corvos mensageiros (e-mails) com atualizações sobre o Beta e a abertura da Forja.
-                    </p>
+                                                return (
+                                                    <button
+                                                        key={archetype.id}
+                                                        type="button"
+                                                        onClick={() => field.onChange(archetype.id)}
+                                                        className={`flex w-full items-center gap-3 chamfer-sm border px-3 py-3 text-left transition-colors ${selected
+                                                            ? "border-[#ff2400] bg-[#ff2400]/10"
+                                                            : "border-[#2D2D2D] bg-[#0b0b0d] hover:border-[#4A4A4A]"
+                                                            }`}
+                                                    >
+                                                        <Spot className="h-10 w-10 shrink-0" />
+                                                        <span>
+                                                            <span className="block font-display text-xs font-bold uppercase tracking-[0.06em] text-[#faf3e0]">
+                                                                {archetype.name}
+                                                            </span>
+                                                            <span className="mt-0.5 block text-xs text-[#A1A1A1]">
+                                                                {archetype.description}
+                                                            </span>
+                                                        </span>
+                                                    </button>
+                                                );
+                                            })}
+                                        </>
+                                    )}
+                                />
+                                {errors.archetype && <span className={errorStyles}>{errors.archetype.message}</span>}
+                            </div>
+                        </div>
 
-                    {status !== "idle" && feedback ? (
-                        <p
-                            className={`chamfer-sm border border-[#ff2400]/50 bg-[#ff2400]/10 px-3 py-2 text-sm ${status === "success" ? "text-[#faf3e0]" : "text-[#ff5a36]"
-                                }`}
-                        >
-                            {feedback}
-                        </p>
-                    ) : null}
+                        <div className="mt-auto space-y-4 pt-4">
+                            <Button type="submit" size="lg" className="w-full" isLoading={status === "loading"}>
+                                Forjar Minha Ficha
+                                <ArrowRight className="h-4 w-4" />
+                            </Button>
+
+                            <p className="text-xs text-[#717171]">
+                                Ao confirmar, você aceita receber nossos corvos mensageiros (e-mails) com atualizações sobre o Beta e a abertura da Forja.
+                            </p>
+
+                            {status !== "idle" && feedback ? (
+                                <p
+                                    className={`chamfer-sm border border-[#ff2400]/50 bg-[#ff2400]/10 px-3 py-2 text-sm ${status === "success" ? "text-[#faf3e0]" : "text-[#ff5a36]"
+                                        }`}
+                                >
+                                    {feedback}
+                                </p>
+                            ) : null}
+                        </div>
+                    </div>
                 </form>
             </Card>
         </motion.aside>
