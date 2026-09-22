@@ -110,59 +110,8 @@ export const LeadCaptureForm = () => {
   return (
     <motion.aside id="captura" {...fadeUp} className="w-full scroll-mt-24">
       <Card variant="surface">
-        <div className="chamfer-sm bg-[#0b0b0d] p-4 ring-1 ring-inset ring-[#2a2a30]">
-          <div className="mb-3 flex items-center justify-between">
-            <p className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#ff5a36]">
-              <KeystoneIcon
-                className="h-2.5 w-2.5 shrink-0 text-[#ff2400]"
-                aria-hidden="true"
-              />
-              Acendendo a Forja
-            </p>
-            <p className="font-display text-sm font-bold text-[#ffb700]">
-              {topText}
-            </p>
-          </div>
-          <div className="h-2 w-full chamfer-sm bg-[#1E1E1E]">
-            <motion.div
-              className="h-full bg-[#ff2400] shadow-[inset_0_1px_0_rgba(250,243,224,0.22)]"
-              animate={{ width: `${progress}%` }}
-              transition={{ duration: 0.35, ease: "easeOut" }}
-            />
-          </div>
-          <div className="mt-2 flex items-center justify-between text-xs text-[#A1A1A1]">
-            <span>{leftText}</span>
-          </div>
-        </div>
-
-        <h2 className="mt-5 font-display text-xl font-bold uppercase tracking-[0.04em] text-[#faf3e0]">
-          Assine o Livro da Forja
-        </h2>
-        <p className="mt-2 text-sm leading-relaxed text-[#A1A1A1]">
-          Preencha seus atributos para garantir acesso prioritário. Os primeiros a chegarem receberão o título exclusivo de Ferreiro Fundador.
-        </p>
-
-        <div className="mt-4 grid gap-2 sm:grid-cols-3 md:grid-cols-5">
-          {missions.map((mission) => (
-            <div
-              key={mission.label}
-              className={`flex items-center gap-2 chamfer-sm border px-3 py-2 text-xs ${
-                mission.done
-                  ? "border-[#ff2400]/50 bg-[#ff2400]/10 text-[#faf3e0]"
-                  : "border-[#2D2D2D] bg-[#0b0b0d] text-[#A1A1A1]"
-              }`}
-            >
-              <KeystoneIcon
-                className={`h-3 w-3 shrink-0 ${mission.done ? "text-[#ff2400]" : "text-[#4A4A4A]"}`}
-                aria-hidden="true"
-              />
-              {mission.label}
-            </div>
-          ))}
-        </div>
-
         {status === "success" ? (
-          <div className="mt-8 flex flex-col items-center justify-center space-y-6 py-12 text-center">
+          <div className="flex flex-col items-center justify-center space-y-6 py-12 text-center">
             <div className="chamfer-sm border border-[#ff2400]/50 bg-[#ff2400]/10 p-6 md:p-8">
               <p className="font-display text-lg font-bold uppercase tracking-[0.04em] text-[#faf3e0]">
                 Ficha Forjada com Sucesso
@@ -183,10 +132,62 @@ export const LeadCaptureForm = () => {
             </Button>
           </div>
         ) : (
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            className="mt-8 grid gap-8 md:grid-cols-2"
-          >
+          <>
+            <div className="chamfer-sm bg-[#0b0b0d] p-4 ring-1 ring-inset ring-[#2a2a30]">
+              <div className="mb-3 flex items-center justify-between">
+                <p className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#ff5a36]">
+                  <KeystoneIcon
+                    className="h-2.5 w-2.5 shrink-0 text-[#ff2400]"
+                    aria-hidden="true"
+                  />
+                  Acendendo a Forja
+                </p>
+                <p className="font-display text-sm font-bold text-[#ffb700]">
+                  {topText}
+                </p>
+              </div>
+              <div className="h-2 w-full chamfer-sm bg-[#1E1E1E]">
+                <motion.div
+                  className="h-full bg-[#ff2400] shadow-[inset_0_1px_0_rgba(250,243,224,0.22)]"
+                  animate={{ width: `${progress}%` }}
+                  transition={{ duration: 0.35, ease: "easeOut" }}
+                />
+              </div>
+              <div className="mt-2 flex items-center justify-between text-xs text-[#A1A1A1]">
+                <span>{leftText}</span>
+              </div>
+            </div>
+
+            <h2 className="mt-5 font-display text-xl font-bold uppercase tracking-[0.04em] text-[#faf3e0]">
+              Assine o Livro da Forja
+            </h2>
+            <p className="mt-2 text-sm leading-relaxed text-[#A1A1A1]">
+              Preencha seus atributos para garantir acesso prioritário. Os primeiros a chegarem receberão o título exclusivo de Ferreiro Fundador.
+            </p>
+
+            <div className="mt-4 grid gap-2 sm:grid-cols-3 md:grid-cols-5">
+              {missions.map((mission) => (
+                <div
+                  key={mission.label}
+                  className={`flex items-center gap-2 chamfer-sm border px-3 py-2 text-xs ${
+                    mission.done
+                      ? "border-[#ff2400]/50 bg-[#ff2400]/10 text-[#faf3e0]"
+                      : "border-[#2D2D2D] bg-[#0b0b0d] text-[#A1A1A1]"
+                  }`}
+                >
+                  <KeystoneIcon
+                    className={`h-3 w-3 shrink-0 ${mission.done ? "text-[#ff2400]" : "text-[#4A4A4A]"}`}
+                    aria-hidden="true"
+                  />
+                  {mission.label}
+                </div>
+              ))}
+            </div>
+
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="mt-8 grid gap-8 md:grid-cols-2"
+            >
             <div className="space-y-4">
               <div className="space-y-2">
                 <label htmlFor="name" className={labelStyles}>
@@ -338,6 +339,7 @@ export const LeadCaptureForm = () => {
               </div>
             </div>
           </form>
+          </>
         )}
       </Card>
     </motion.aside>
