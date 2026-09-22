@@ -161,165 +161,184 @@ export const LeadCaptureForm = () => {
           ))}
         </div>
 
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="mt-8 grid gap-8 md:grid-cols-2"
-        >
-          <div className="space-y-4">
-            <div className="space-y-2">
-              <label htmlFor="name" className={labelStyles}>
-                Nome do Aventureiro ou da sua Taverna
-              </label>
-              <input
-                id="name"
-                {...register("name")}
-                className={fieldStyles}
-                placeholder="Seu nome ou da sua loja"
-                maxLength={60}
-              />
-              {errors.name && (
-                <span className={errorStyles}>{errors.name.message}</span>
-              )}
+        {status === "success" ? (
+          <div className="mt-8 flex flex-col items-center justify-center space-y-6 py-12 text-center">
+            <div className="chamfer-sm border border-[#ff2400]/50 bg-[#ff2400]/10 p-6 md:p-8">
+              <p className="font-display text-lg font-bold uppercase tracking-[0.04em] text-[#faf3e0]">
+                Ficha Forjada com Sucesso
+              </p>
+              <p className="mt-2 text-[#D1D1D1]">{feedback}</p>
             </div>
-
-            <div className="space-y-2">
-              <label htmlFor="email" className={labelStyles}>
-                Contato Mágico
-              </label>
-              <input
-                id="email"
-                type="email"
-                {...register("email")}
-                className={fieldStyles}
-                placeholder="Seu e-mail"
-                maxLength={100}
-              />
-              {errors.email && (
-                <span className={errorStyles}>{errors.email.message}</span>
-              )}
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-2">
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              onClick={() => {
+                setStatus("idle");
+                setFeedback("");
+                reset();
+              }}
+            >
+              Voltar ao formulário
+            </Button>
+          </div>
+        ) : (
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="mt-8 grid gap-8 md:grid-cols-2"
+          >
+            <div className="space-y-4">
               <div className="space-y-2">
-                <label htmlFor="city" className={labelStyles}>
-                  Seu Território
+                <label htmlFor="name" className={labelStyles}>
+                  Nome do Aventureiro ou da sua Taverna
                 </label>
                 <input
-                  id="city"
-                  {...register("city")}
+                  id="name"
+                  {...register("name")}
                   className={fieldStyles}
-                  placeholder="Ex: Londrina, São Paulo"
+                  placeholder="Seu nome ou da sua loja"
                   maxLength={60}
                 />
-                {errors.city && (
-                  <span className={errorStyles}>{errors.city.message}</span>
+                {errors.name && (
+                  <span className={errorStyles}>{errors.name.message}</span>
                 )}
               </div>
 
               <div className="space-y-2">
-                <label htmlFor="interest" className={labelStyles}>
-                  Foco da Jornada
+                <label htmlFor="email" className={labelStyles}>
+                  Contato Mágico
                 </label>
-                <select
-                  id="interest"
-                  {...register("interest")}
+                <input
+                  id="email"
+                  type="email"
+                  {...register("email")}
                   className={fieldStyles}
-                >
-                  <option value="" disabled>
-                    Selecione
-                  </option>
-                  <option value="RPG">RPG (D&D, Tormenta, etc.)</option>
-                  <option value="Board Games">
-                    Board Games (Jogos de Tabuleiro)
-                  </option>
-                  <option value="Loja / Espaço Geek">
-                    Loja / Espaço Físico Geek
-                  </option>
-                  <option value="TCG">TCG / Card Games</option>
-                  <option value="Outros">Outros</option>
-                </select>
-                {errors.interest && (
-                  <span className={errorStyles}>{errors.interest.message}</span>
-                )}
-              </div>
-            </div>
-          </div>
-
-          <div className="flex flex-col space-y-4">
-            <div className="space-y-2">
-              <p className={labelStyles}>Escolha sua Classe (Perfil)</p>
-              <div className="grid gap-2 lg:grid-cols-2">
-                <Controller
-                  name="archetype"
-                  control={control}
-                  render={({ field }) => (
-                    <>
-                      {archetypes.map((archetype) => {
-                        const Spot = archetype.Spot;
-                        const selected = field.value === archetype.id;
-
-                        return (
-                          <button
-                            key={archetype.id}
-                            type="button"
-                            onClick={() => field.onChange(archetype.id)}
-                            className={`flex w-full items-center gap-3 chamfer-sm border px-3 py-3 text-left transition-colors ${
-                              selected
-                                ? "border-[#ff2400] bg-[#ff2400]/10"
-                                : "border-[#2D2D2D] bg-[#0b0b0d] hover:border-[#4A4A4A]"
-                            }`}
-                          >
-                            <Spot className="h-10 w-10 shrink-0" />
-                            <span>
-                              <span className="block font-display text-xs font-bold uppercase tracking-[0.06em] text-[#faf3e0]">
-                                {archetype.name}
-                              </span>
-                              <span className="mt-0.5 block text-xs text-[#A1A1A1]">
-                                {archetype.description}
-                              </span>
-                            </span>
-                          </button>
-                        );
-                      })}
-                    </>
-                  )}
+                  placeholder="Seu e-mail"
+                  maxLength={100}
                 />
-                {errors.archetype && (
-                  <span className={errorStyles}>
-                    {errors.archetype.message}
-                  </span>
+                {errors.email && (
+                  <span className={errorStyles}>{errors.email.message}</span>
                 )}
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="space-y-2">
+                  <label htmlFor="city" className={labelStyles}>
+                    Seu Território
+                  </label>
+                  <input
+                    id="city"
+                    {...register("city")}
+                    className={fieldStyles}
+                    placeholder="Ex: Londrina, São Paulo"
+                    maxLength={60}
+                  />
+                  {errors.city && (
+                    <span className={errorStyles}>{errors.city.message}</span>
+                  )}
+                </div>
+
+                <div className="space-y-2">
+                  <label htmlFor="interest" className={labelStyles}>
+                    Foco da Jornada
+                  </label>
+                  <select
+                    id="interest"
+                    {...register("interest")}
+                    className={fieldStyles}
+                  >
+                    <option value="" disabled>
+                      Selecione
+                    </option>
+                    <option value="RPG">RPG (D&D, Tormenta, etc.)</option>
+                    <option value="Board Games">
+                      Board Games (Jogos de Tabuleiro)
+                    </option>
+                    <option value="Loja / Espaço Geek">
+                      Loja / Espaço Físico Geek
+                    </option>
+                    <option value="TCG">TCG / Card Games</option>
+                    <option value="Outros">Outros</option>
+                  </select>
+                  {errors.interest && (
+                    <span className={errorStyles}>{errors.interest.message}</span>
+                  )}
+                </div>
               </div>
             </div>
 
-            <div className="mt-auto space-y-4 pt-4">
-              <Button
-                type="submit"
-                size="lg"
-                className="w-full"
-                isLoading={status === "loading"}
-              >
-                Forjar Minha Ficha
-                <ArrowRight className="h-4 w-4" />
-              </Button>
+            <div className="flex flex-col space-y-4">
+              <div className="space-y-2">
+                <p className={labelStyles}>Escolha sua Classe (Perfil)</p>
+                <div className="grid gap-2 lg:grid-cols-2">
+                  <Controller
+                    name="archetype"
+                    control={control}
+                    render={({ field }) => (
+                      <>
+                        {archetypes.map((archetype) => {
+                          const Spot = archetype.Spot;
+                          const selected = field.value === archetype.id;
 
-              <p className="text-xs text-[#717171]">
-                Ao confirmar, você aceita receber nossos corvos mensageiros
-                (e-mails) com atualizações sobre o Beta e a abertura da Forja.
-              </p>
+                          return (
+                            <button
+                              key={archetype.id}
+                              type="button"
+                              onClick={() => field.onChange(archetype.id)}
+                              className={`flex w-full items-center gap-3 chamfer-sm border px-3 py-3 text-left transition-colors ${
+                                selected
+                                  ? "border-[#ff2400] bg-[#ff2400]/10"
+                                  : "border-[#2D2D2D] bg-[#0b0b0d] hover:border-[#4A4A4A]"
+                              }`}
+                            >
+                              <Spot className="h-10 w-10 shrink-0" />
+                              <span>
+                                <span className="block font-display text-xs font-bold uppercase tracking-[0.06em] text-[#faf3e0]">
+                                  {archetype.name}
+                                </span>
+                                <span className="mt-0.5 block text-xs text-[#A1A1A1]">
+                                  {archetype.description}
+                                </span>
+                              </span>
+                            </button>
+                          );
+                        })}
+                      </>
+                    )}
+                  />
+                  {errors.archetype && (
+                    <span className={errorStyles}>
+                      {errors.archetype.message}
+                    </span>
+                  )}
+                </div>
+              </div>
 
-              {status !== "idle" && feedback ? (
-                <p
-                  className={`chamfer-sm border border-[#ff2400]/50 bg-[#ff2400]/10 px-3 py-2 text-sm ${
-                    status === "success" ? "text-[#faf3e0]" : "text-[#ff5a36]"
-                  }`}
+              <div className="mt-auto space-y-4 pt-4">
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="w-full"
+                  isLoading={status === "loading"}
                 >
-                  {feedback}
+                  Forjar Minha Ficha
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
+
+                <p className="text-xs text-[#717171]">
+                  Ao confirmar, você aceita receber nossos corvos mensageiros
+                  (e-mails) com atualizações sobre o Beta e a abertura da Forja.
                 </p>
-              ) : null}
+
+                {status === "error" && feedback ? (
+                  <p className="chamfer-sm border border-[#ff5a36]/50 bg-[#ff5a36]/10 px-3 py-2 text-sm text-[#ff5a36]">
+                    {feedback}
+                  </p>
+                ) : null}
+              </div>
             </div>
-          </div>
-        </form>
+          </form>
+        )}
       </Card>
     </motion.aside>
   );
