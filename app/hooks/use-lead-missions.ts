@@ -19,14 +19,6 @@ const LEFT_TEXT = [
     "Pronto para forjar"
 ];
 
-const RIGHT_TEXT = [
-    "Início da missão",
-    "Primeira batida",
-    "Primeira martelada",
-    "Ganhando forma",
-    "Últimos ajustes",
-    "Obra-prima concluída"
-];
 
 export const useLeadMissions = (formValues: Partial<ILeadForm>) => {
     const missions = useMemo(
@@ -45,7 +37,6 @@ export const useLeadMissions = (formValues: Partial<ILeadForm>) => {
     
     const topText = FORGE_STATUS[completedMissions];
     const leftText = LEFT_TEXT[completedMissions];
-    const rightText = RIGHT_TEXT[completedMissions];
 
-    return { missions, progress, topText, leftText, rightText };
+    return { missions, progress, topText, leftText };
 };

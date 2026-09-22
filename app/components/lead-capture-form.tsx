@@ -68,7 +68,7 @@ export const LeadCaptureForm = () => {
   }, [setValue]);
 
   const formValues = watch();
-  const { missions, progress, topText, leftText, rightText } = useLeadMissions(formValues);
+  const { missions, progress, topText, leftText } = useLeadMissions(formValues);
 
   async function onSubmit(data: ILeadForm) {
     setStatus("loading");
@@ -132,9 +132,6 @@ export const LeadCaptureForm = () => {
           </div>
           <div className="mt-2 flex items-center justify-between text-xs text-[#A1A1A1]">
             <span>{leftText}</span>
-            <span className="font-semibold uppercase tracking-[0.16em] text-[#D1D1D1]">
-              {rightText}
-            </span>
           </div>
         </div>
 
