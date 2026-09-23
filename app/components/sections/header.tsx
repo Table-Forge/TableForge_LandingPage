@@ -36,7 +36,6 @@ export const Header = () => {
             width={48} 
             height={48} 
             className="h-12 w-auto" 
-            style={{ width: "auto", height: "auto" }}
           />
           <Image
             src={LOGO_TEXT_URL}
@@ -45,7 +44,6 @@ export const Header = () => {
             height={28}
             aria-hidden="true"
             className="hidden h-7 w-auto sm:block"
-            style={{ width: "auto", height: "auto" }}
           />
         </a>
 
