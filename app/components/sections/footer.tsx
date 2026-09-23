@@ -37,7 +37,11 @@ export const Footer = () => {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="relative mt-auto border-t border-[#1E1E1E] text-[#D1D1D1]">
+        <footer className="stone-pattern relative mt-auto border-t border-[#2D2D2D] text-[#D1D1D1]">
+            <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,transparent_30%,rgba(0,0,0,0.75)_100%)]"
+            />
             <div className="relative mx-auto max-w-6xl px-6 py-12 md:px-10 lg:py-16">
                 <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
                     <div className="space-y-4 lg:col-span-2">
