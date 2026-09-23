@@ -37,16 +37,19 @@ export const Footer = () => {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="stone-pattern relative mt-auto border-t border-[#2D2D2D] text-[#D1D1D1]">
-            <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,transparent_30%,rgba(0,0,0,0.75)_100%)]"
-            />
+        <footer className="relative mt-auto border-t border-[#1E1E1E] text-[#D1D1D1]">
             <div className="relative mx-auto max-w-6xl px-6 py-12 md:px-10 lg:py-16">
                 <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
                     <div className="space-y-4 lg:col-span-2">
                         <a href="#topo" className="inline-block drop-shadow-[0_0_18px_rgba(255,36,0,0.35)]">
-                            <Image src={LOGO_TEXT_URL} alt="TableForge" width={150} height={40} className="h-10 w-auto" />
+                            <Image 
+                                src={LOGO_TEXT_URL} 
+                                alt="TableForge" 
+                                width={150} 
+                                height={40} 
+                                className="h-10 w-auto" 
+                                style={{ width: "auto", height: "auto" }}
+                            />
                         </a>
                         <p className="max-w-xs text-xs leading-relaxed text-[#A1A1A1]">
                             Conectando aventureiros, mestres e tavernas através do nosso mapa. O ecossistema definitivo para campanhas de RPG, board games e TCG. Forje sua mesa. Reúna sua party.
