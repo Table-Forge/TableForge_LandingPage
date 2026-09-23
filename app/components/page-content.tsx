@@ -2,7 +2,7 @@
 
 import { Header } from "./sections/header";
 import { HeroSection } from "./sections/hero-section";
-import { ForgeSparks } from "./ui/forge-sparks";
+import { ForgeSparks } from "./ui/forge-sparks/forge-sparks";
 import { FeaturesSection } from "./sections/features-section";
 import { HowItWorksSection } from "./sections/how-it-works-section";
 import { StoreSection } from "./sections/store-section";
